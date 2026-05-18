@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>晚宴回复 · 刘博玺 &amp; 何晓雪</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600&family=Noto+Sans+SC:wght@300;400;500&family=Cormorant+Garamond:ital,wght@1,300;1,400&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --red:        #8C1222;
+      --red-deep:   #520A12;
+      --red-mid:    #A8182A;
+      --gold:       #C9A96E;
+      --gold-bright:#F0D878;
+      --gold-dark:  #8B6914;
+      --cream:      #FAF4EC;
+      --warm-white: #FDF8F2;
+      --dark:       #2E1208;
+      --muted:      #7A5A4A;
+      --border:     #E8D4B8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      color: var(--dark);
+      font-weight: 300;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-color: var(--warm-white);
+      background-image:
+        repeating-linear-gradient( 45deg, transparent, transparent 22px, rgba(201,169,110,.055) 22px, rgba(201,169,110,.055) 23px),
+        repeating-linear-gradient(-45deg, transparent, transparent 22px, rgba(201,169,110,.055) 22px, rgba(201,169,110,.055) 23px);
+    }
+
+    /* ── Nav ── */
+    nav {
+      background: var(--red-deep);
+      padding: 16px 44px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid var(--gold-dark);
+      position: relative;
+    }
+    nav::after {
+      content: '';
+      position: absolute;
+      bottom: -5px; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .nav-logo {
+      font-family: 'ZCOOL XiaoWei', 'Noto Serif SC', serif;
+      font-size: 1.45rem;
+      color: var(--gold-bright);
+      text-decoration: none;
+      letter-spacing: 0.1em;
+    }
+    .nav-logo span { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--gold); opacity: .85; }
+    .nav-back { font-size: 0.7rem; letter-spacing: 0.18em; color: rgba(255,255,255,.5); text-decoration: none; transition: color .25s; }
+    .nav-back:hover { color: var(--gold); }
+
+    /* ── Page header ── */
+    .page-header {
+      background: linear-gradient(160deg, var(--red-mid) 0%, var(--red) 45%, var(--red-deep) 100%);
+      text-align: center;
+      padding: 52px 24px 58px;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(
+        -55deg, transparent, transparent 30px,
+        rgba(255,220,100,.035) 30px, rgba(255,220,100,.035) 31px
+      );
+    }
+    .page-header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0; height: 8px;
+      background:
+        linear-gradient(90deg, transparent 0%, var(--gold) 15%, var(--gold-bright) 50%, var(--gold) 85%, transparent 100%) top / 100% 2.5px no-repeat,
+        linear-gradient(90deg, transparent 0%, var(--gold-dark) 15%, var(--gold) 50%, var(--gold-dark) 85%, transparent 100%) bottom / 100% 2px no-repeat;
+    }
+    .header-ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .header-ornament .lantern { font-size: 1.5rem; }
+    .header-ornament .rule { width: 60px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+    .header-ornament .char { font-family: 'Noto Serif SC', serif; font-size: 1.1rem; color: var(--gold-bright); letter-spacing: 0.1em; }
+    .page-header h1 {
+      font-family: 'Noto Serif SC', serif;
+      font-size: clamp(1.6rem, 4.5vw, 2.4rem);
+      font-weight: 400; color: #fff;
+      letter-spacing: 0.12em; margin-bottom: 16px;
+      text-shadow: 0 2px 12px rgba(0,0,0,.3);
+      position: relative;
+    }
+    .page-header p { font-size: 0.8rem; color: rgba(255,255,255,.6); line-height: 2; max-width: 460px; margin: 0 auto; position: relative; }
+    .page-header p strong { color: rgba(255,220,160,.9); font-weight: 400; }
+
+    /* ── Event strip ── */
+    .event-strip {
+      display: flex; justify-content: center;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--cream);
+      position: relative;
+    }
+    .event-strip::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, transparent, var(--red) 30%, var(--red) 70%, transparent);
+    }
+    .event-block { padding: 28px 52px; text-align: center; flex: 0 0 auto; }
+    .event-block + .event-block { border-left: 1px solid var(--border); }
+    .ev-label { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-dark); display: block; margin-bottom: 8px; }
+    .ev-title { font-family: 'Noto Serif SC', serif; font-size: 0.95rem; font-weight: 400; display: block; margin-bottom: 6px; color: var(--dark); }
+    .ev-detail { font-size: 0.74rem; color: var(--muted); line-height: 1.8; }
+    .event-block.dinner .ev-label { color: var(--red); }
+    .event-block.dinner .ev-title { color: var(--red-deep); }
+
+    /* ── Main ── */
+    main { flex: 1; display: flex; flex-direction: column; align-items: center; padding: 52px 24px 72px; }
+
+    /* ── Warm notice ── */
+    .warm-notice {
+      width: 100%; max-width: 520px;
+      margin-bottom: 4px;
+      background: var(--cream);
+      border-left: 3px solid var(--red);
+      border-top: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 18px 24px;
+      display: flex; gap: 12px; align-items: flex-start;
+    }
+    .warm-notice .notice-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
+    .warm-notice p { font-size: 0.78rem; color: var(--muted); line-height: 1.9; }
+
+    /* ── Login panel ── */
+    .login-panel {
+      width: 100%; max-width: 520px;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--red);
+      padding: 44px 48px 42px;
+      position: relative;
+    }
+    .login-panel::before, .login-panel::after {
+      content: '';
+      position: absolute;
+      width: 18px; height: 18px;
+      border-color: var(--gold);
+      border-style: solid;
+    }
+    .login-panel::before { bottom: 14px; left: 14px; border-width: 0 0 1px 1px; }
+    .login-panel::after  { bottom: 14px; right: 14px; border-width: 0 1px 1px 0; }
+
+    .panel-header { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+    .panel-icon { font-size: 1.8rem; line-height: 1; }
+    .login-panel h2 {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 1.3rem; font-weight: 400;
+      color: var(--red-deep); letter-spacing: 0.06em;
+    }
+    .panel-divider {
+      width: 100%; height: 1px;
+      background: linear-gradient(90deg, var(--red) 0%, var(--gold) 40%, transparent 100%);
+      margin: 14px 0 28px; opacity: 0.45;
+    }
+    .panel-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.85; margin-bottom: 28px; }
+
+    .input-group { display: flex; flex-direction: column; gap: 5px; margin-bottom: 16px; }
+    .input-group label { font-size: 0.64rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
+    .input-group input {
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-bottom: 2px solid var(--border);
+      background: var(--warm-white);
+      font-family: 'Noto Sans SC', monospace;
+      font-size: 0.9rem; letter-spacing: 0.08em;
+      color: var(--dark); outline: none;
+      transition: border-color .25s, border-bottom-color .25s;
+    }
+    .input-group input:focus { border-color: var(--gold); border-bottom-color: var(--red); }
+    .input-group input::placeholder { color: #D4C0A8; letter-spacing: 0.04em; }
+
+    .msg { font-size: 0.76rem; padding: 11px 14px; line-height: 1.65; margin-bottom: 16px; display: none; }
+    .msg.visible { display: block; }
+    .msg-error   { background: #FDF0F0; color: #9B2020; border-left: 3px solid #C03030; }
+    .msg-success { background: #F2FAF4; color: #2E6E48; border-left: 3px solid #3A8058; }
+
+    @keyframes shake {
+      0%,100% { transform: translateX(0); }
+      20%,60%  { transform: translateX(-6px); }
+      40%,80%  { transform: translateX(6px); }
+    }
+    .shake { animation: shake .38s ease; }
+
+    .btn-submit {
+      display: block; width: 100%; margin-top: 8px; padding: 14px;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 0.76rem; font-weight: 400; letter-spacing: 0.26em;
+      text-align: center;
+      background: var(--red); border: 1px solid var(--red-deep);
+      color: #fff; cursor: pointer;
+      transition: background .25s;
+      position: relative; overflow: hidden;
+    }
+    .btn-submit::after {
+      content: '';
+      position: absolute; inset: 3px;
+      border: 1px solid rgba(255,220,150,.25);
+      pointer-events: none;
+    }
+    .btn-submit:hover:not(:disabled) { background: var(--red-deep); }
+    .btn-submit:disabled { opacity: .5; cursor: not-allowed; }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--red-deep);
+      color: rgba(255,255,255,.38);
+      text-align: center; padding: 36px 24px;
+      font-size: 0.7rem; position: relative;
+    }
+    footer::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .footer-names { font-family: 'ZCOOL XiaoWei', 'Noto Serif SC', serif; font-size: 1.3rem; color: var(--gold-bright); letter-spacing: 0.1em; display: block; margin-bottom: 8px; }
+    .footer-verse { font-family: 'Noto Serif SC', serif; font-style: italic; font-size: .76rem; color: rgba(255,220,150,.45); line-height: 1.8; margin-bottom: 14px; }
+    footer a { color: var(--gold); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      nav { padding: 14px 20px; }
+      .event-strip { flex-direction: column; }
+      .event-block + .event-block { border-left: none; border-top: 1px solid var(--border); }
+      .event-block { padding: 18px 24px; }
+      .login-panel { padding: 32px 24px 36px; }
+      .warm-notice { padding: 16px 20px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+<noscript>此页面需要启用 JavaScript 才能进行身份验证。</noscript>
+
+<nav>
+  <a href="index.html" class="nav-logo">刘博玺 <span>&amp;</span> 何晓雪</a>
+  <a href="index.html" class="nav-back">← 返回婚礼主页</a>
+</nav>
+
+<div class="page-header">
+  <div class="header-ornament">
+    <span class="lantern">🏮</span>
+    <div class="rule"></div>
+    <span class="char">囍</span>
+    <div class="rule"></div>
+    <span class="lantern">🏮</span>
+  </div>
+  <h1>晚宴出席回复</h1>
+  <p>
+    <strong>证婚典礼欢迎所有亲友莅临，无需回复。</strong><br>
+    若您已收到晚宴邀请码，请在下方登入填写出席信息，<br>
+    请于 <strong>2026年7月1日</strong> 前完成回复。
+  </p>
+</div>
+
+<div class="event-strip">
+  <div class="event-block">
+    <span class="ev-label">证婚典礼 · 欢迎所有亲友</span>
+    <span class="ev-title">2026年9月12日（周六）下午 2:00</span>
+    <span class="ev-detail">汉密尔顿主恩国语宣道会<br>31 Summit Ave, Hamilton, ON · 无需回复</span>
+  </div>
+  <div class="event-block dinner">
+    <span class="ev-label">🏮 婚宴 · 受邀嘉宾</span>
+    <span class="ev-title">2026年9月12日（周六）晚上 7:00</span>
+    <span class="ev-detail">Mandarin 餐厅（自助晚宴）<br>1508 Upper James St, Hamilton, ON</span>
+  </div>
+</div>
+
+<main>
+  <div class="warm-notice">
+    <span class="notice-icon">🧧</span>
+    <p>
+      由于晚宴座位有限，每份邀请码对应一位晚宴名额，感谢您的理解与体谅。
+      若您的同行来宾也受邀出席晚宴，他们将另行收到属于自己的专属邀请码。
+    </p>
+  </div>
+
+  <div class="login-panel">
+    <div class="panel-header">
+      <span class="panel-icon">🏮</span>
+      <h2>晚宴受邀嘉宾登入</h2>
+    </div>
+    <div class="panel-divider"></div>
+    <p class="panel-desc">请输入您收到的用户名与密码，验证后即可填写出席信息。</p>
+
+    <div class="msg msg-error"   id="msgError">用户名或密码错误，请检查后重试。如有疑问请联系新人。</div>
+    <div class="msg msg-success" id="msgSuccess">验证成功！正在跳转至回复表单……</div>
+
+    <div class="input-group">
+      <label for="username">用户名</label>
+      <input type="text" id="username" placeholder="例：G001"
+             autocomplete="username" autocapitalize="characters" spellcheck="false">
+    </div>
+    <div class="input-group">
+      <label for="password">密码</label>
+      <input type="password" id="password" placeholder="请输入密码"
+             autocomplete="current-password" spellcheck="false">
+    </div>
+
+    <button class="btn-submit" id="loginBtn" onclick="doLogin()">登　入</button>
+
+    <p style="margin-top:16px; font-size:0.72rem; color:var(--muted); line-height:1.8; text-align:center;">
+      📋 验证通过后将跳转至 Google 表单，<br>
+      请确保您已登录 Google 账号以便提交回复。
+    </p>
+  </div>
+</main>
+
+<footer>
+  <span class="footer-names">刘博玺 &amp; 何晓雪</span>
+  <p class="footer-verse">"我们爱，因为上帝先爱我们。" — 约翰一书 4:19</p>
+  <p><a href="index.html">← 返回婚礼主页</a></p>
+</footer>
+
+<script>
+  const CREDENTIALS = {
+    "G001": "aeb98e1cd0b29fd38333b607c15b604a8aae364c7e17e71ebd5016e822dc3382",
+    "G002": "281f543ed40f3f6c83965b30fb7fb1568adef1ffe6847886c5afb65aea9524e7",
+    "G003": "74960e4924637f0cde650011e0761c55da4d2379e9be8f9236051584556ad84c",
+    "G004": "43fa05c2e9c8874ce8608487dc94a5ed620de386286581fb006efec89bfac77c",
+    "G005": "b894724d47450910816680236d7f1b38f59cdc3de68c973cb57cea4f0dbcde79",
+    "G006": "0054a2e767d972107c7cf79dc9cb3000b3985913153245874401712dd3d61e08",
+    "G007": "72a2531118f9f9edfb78b85a0c2213646a7e0c1bdb0905e5a0b1cd43fa34b66a",
+    "G008": "cce66318146856554cebb815c1e64abe09e948e54e51677193bf8041af59298f",
+    "G009": "39eb36290a88bdf755a30379aaabd3ac759e5470c0b5614edd74c574395fec60",
+    "G010": "ebc215ac9c2faa6795116d24143af6a678ad04d3ca89ed2fe0d8245abd9d4035",
+    "G011": "459ff1b9abe23fc6642d94b8c358625386d881a3a34157d7eabf948f4935beb8",
+    "G012": "d632ccde48c27abc88d9fb39139a2121180cc8cae7ee3a44ba767e329a391c58",
+    "G013": "f4af9e8833c6f1060fd7a9e747d9dfc2de7a9b9c56ded50bcb6db9979c5bab7a",
+    "G014": "6bc3935c52e1cb610a451d86e9d442013d13a2f905453f98d09245acc594b51a",
+    "G015": "7cbf6c76970bdab61cf258aea52074548ebf691de9e75cc65f23a5fc80d6af9d",
+    "G016": "d3f1940c729f44c591ca9508f2e3af7b158742c73908dd817e4a28a41b7a1b7d",
+    "G017": "b22fa10e5f5ef201a4771d10f396430591d682cd95179fc57a7e0f8f4a734bbd",
+    "G018": "ebf8413135decffc983e7344a025907c4d5e9de502f8abef02690413b4535e66",
+    "G019": "54494a7b1443e3da755fa6684cbd4b45c5b35185cbab950e10369493b1835805",
+    "G020": "b88b9bff337cbe5db9184d3ac7ba31af20f84e77bfdadc359c5f0cfb9d43bf4f",
+    "G021": "7735a708e9cd5c8a6f53dc3732fbc71ad955507d27c5f17216845c49f362b01e",
+    "G022": "533023f73605dbb4eda6f83f8323a2748ad019f6ab9359e505d326bdd3d90ab4",
+    "G023": "babe2789771c71df4ac7c6a7fcbd3a55fd5c170719dc386a3ad44d08c30b73ea",
+    "G024": "fad134b080ed4548b94673a2b5fb79ce083e5e93c9608f583e37ef3715c99d16",
+    "G025": "637749990947ac6d491762764cfc1c7eb0741ee4bef3e672e9e2e316bbb74f86",
+    "G026": "8e7c092d8f81d0295848d44b16f9d98d4fc2d0a61cafb72023980616d1abcf7e",
+    "G027": "b889e7d1cb22703e4dae84f567d5ecdeb4890bea29779f305fef125368a907f4",
+    "G028": "c6b22c5346fd354e99b5d1f075899f4306824bf430564a7140e4fa5ddb5e768f",
+    "G029": "cdcf057268a08343c290cc703b0e4bd6d8df2cb18d7ec663265784e55b057e58",
+    "G030": "9ce3123e89cb1cc0eab01323de03547060f724a827f556aa4f5408eca9a0eae0",
+    "G031": "076f47d1ed83ec404c722198275d967c711bff87e0349ca8b9ce1cbbb8cdaed1",
+    "G032": "6db37b126f4f302ba3ef0c391e402162d201917f82b063720ed2836d7ea21bd8",
+    "G033": "ed43dafe129029519cbf642d9fa97ecadfad23c6096193672463c29ac97d8732",
+    "G034": "a2e4f1a501b8b6d90c6d75c3aca65e7624f3ff97113f9b17994f0d8d706fa65e",
+    "G035": "e733a3c06c40152ceeb5c7a0941c8b38821623e311643b1e5f29884012fb7b70",
+    "G036": "492a35e8b658e5486874a0a23a704e5d289f94fd6d4f4ac65aa076e951f1b810",
+    "G037": "1ac7d9233310be3bebb141fc5011237808a0f6d93e0ef58a0612271cba6a981f",
+    "G038": "ac212939f267b5f9f319c7a6aebd0a0c8552e52e646cf10cbb015b84fd0f7e8c",
+    "G039": "32cc679657dbe75fc0b4ccbdd1072e621b49100aef930a064d6de07f30184ec6",
+    "G040": "717e634006c2171462b225e85b69156764a5ed60c65703e2966cbaced62553ae",
+    "G041": "802b5367a758afa7df18ab1a9f5feb9669c49c4ffd4ecd49d3977ed63714ec59",
+    "G042": "0c69a1c35d4da23c44300a8dd738aa74a333744c4a494906de738bb5f626c979",
+    "G043": "c5a952d354481d438b7499b28275dab80c8b154ffbc8b929246de252e9358429",
+    "G044": "2093288ed78772d720a5d427a876489a6f6b19d43a0b93c48ee88ab5c3fd0223",
+    "G045": "5eefcca6d6df09ecb7517c3ee41118dea4fd43611edfbaf7e70f12c29108b230",
+    "G046": "811ac8b38b25387a2bfcf3a8dea44bd3df30df97a35595dca6929f8931846e2a",
+    "G047": "b44fd060b521c7873fd665518ffee352bf39cf66b2fe1d486fc0ca604bd51362",
+    "G048": "0f0d96b01813449af36105da3c4539666ad17e9be497a071901c74aeb9335856",
+    "G049": "c04a410543f83e09c3b796e17db1b7ff8b2bc120864af0280a4a35536af9e06c",
+    "G050": "67c50e7bb29b9d15eb19b431df8cc57e2b6ec50f2092f0416c921e74ce12c23c",
+    "G051": "cb4e89cf7eb595651ec7bc2cef98f26a0d6fe5fa61e5b96015330a5a55b15fb4",
+    "G052": "479ad3a164514cef5f2adb626412cadf2d163b0b0c5ae8d417efefdb8c3cd643",
+    "G053": "66e3caedd27a5c6c657432b78872a9c9a0da163ac559ee97f1b7484b52e1e3fc",
+    "G054": "c8ba41be6ac12e8053cb2859837f7e426ad116cb3e5284b57c054193ddd2bd3d",
+    "G055": "f7dc2b038a4459175c9b8456f2a1d7ad237461272c2fcb29055b4381808862f3",
+    "G056": "095cc79a4d3a152f29de6fbaee56f8af9f24e0dc88bb9f0f4775998edcf5f3ab",
+    "G057": "bbff5fb74f097e84e4c21223f7741b50cd97a304ee67db3040b59efb327412e8",
+    "G058": "2fae5a9a08d023b5d2be711b94037d0a62e2194adb7b00f78407b4692a6d5475",
+    "G059": "b668c911fc8d3a9b496fd59886bda7fc4235a648a34817bf5d993f1c52507199",
+    "G060": "36a6b84e1a546c62e63549b58eb2c8f589e8cd97686213206e9251f1e17fca0f",
+  };
+
+  const DINNER_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfR2bvgyPcHWg04ELOSzshy09FA4ZOEbLAcis4-jHmCGO08MQ/viewform?usp=header';
+
+  async function sha256(str) {
+    const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+    return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+  }
+
+  async function doLogin() {
+    const btn    = document.getElementById('loginBtn');
+    const errMsg = document.getElementById('msgError');
+    const okMsg  = document.getElementById('msgSuccess');
+    const panel  = document.querySelector('.login-panel');
+
+    const username = document.getElementById('username').value.trim().toUpperCase();
+    const password = document.getElementById('password').value.trim().toUpperCase();
+
+    errMsg.classList.remove('visible');
+    okMsg.classList.remove('visible');
+    btn.disabled = true;
+    btn.textContent = '验证中……';
+
+    const hash = await sha256(password);
+
+    if (CREDENTIALS[username] && CREDENTIALS[username] === hash) {
+      okMsg.classList.add('visible');
+      btn.textContent = '跳转中……';
+      setTimeout(() => {
+        window.open(DINNER_FORM_URL, '_blank');
+        btn.disabled = false;
+        btn.textContent = '登　入';
+      }, 1200);
+    } else {
+      errMsg.classList.add('visible');
+      panel.classList.add('shake');
+      panel.addEventListener('animationend', () => panel.classList.remove('shake'), { once: true });
+      btn.disabled = false;
+      btn.textContent = '登　入';
+    }
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Enter') doLogin();
+  });
+</script>
+</body>
+</html>

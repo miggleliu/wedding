@@ -1,0 +1,1461 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>刘博玺 &amp; 何晓雪 婚礼</title>
+  <meta name="description" content="刘博玺与何晓雪的婚礼邀请、流程、地点、相册与 RSVP 信息。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!--
+    Noto Serif SC  → elegant serif for headings (Chinese)
+    Noto Sans SC   → clean sans for body (Chinese)
+    Cormorant Garamond → decorative italic for "&" and Latin accents
+  -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600&family=Noto+Sans+SC:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Ma+Shan+Zheng&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+  <style>
+    /* ─── Reset & Tokens ─── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --gold:       #c9a96e;
+      --gold-dark:  #8b6914;
+      --cream:      #f8f4ef;
+      --warm-white: #fdfbf8;
+      --dark:       #3d3530;
+      --muted:      #7a6e66;
+      --border:     #e8ddd0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      color: var(--dark);
+      background: var(--warm-white);
+      overflow-x: hidden;
+      font-weight: 300;
+    }
+
+    /* ─── Utilities ─── */
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 40px; }
+
+    .section-label {
+      display: block;
+      font-size: 0.68rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+      font-family: 'Noto Sans SC', sans-serif;
+    }
+
+    .section-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: clamp(1.9rem, 4.5vw, 3rem);
+      font-weight: 300;
+      line-height: 1.3;
+    }
+
+    .divider {
+      width: 56px; height: 1px;
+      background: var(--gold);
+      margin: 22px 0;
+    }
+    .divider-center { margin: 22px auto; }
+
+    /* Bible verse block */
+    .verse-block {
+      border-left: 2px solid var(--gold);
+      padding: 10px 20px;
+      margin: 24px 0;
+      font-style: italic;
+      color: var(--muted);
+    }
+    .verse-block p   { font-size: 0.95rem; line-height: 1.85; }
+    .verse-block cite { font-size: 0.72rem; letter-spacing: 0.1em; display: block; margin-top: 8px; }
+
+    /* Cross accent */
+    .cross-accent {
+      display: block;
+      font-size: 1rem;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 15px 44px;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-decoration: none;
+      border: 1px solid currentColor;
+      cursor: pointer;
+      background: transparent;
+      transition: background 0.28s, color 0.28s, border-color 0.28s;
+    }
+    .btn-light  { color: #fff; border-color: rgba(255,255,255,0.65); }
+    .btn-light:hover  { background: rgba(255,255,255,0.18); border-color: #fff; }
+    .btn-dark   { color: var(--dark); border-color: var(--border); }
+    .btn-dark:hover   { background: var(--gold); border-color: var(--gold); color: #fff; }
+    .btn-filled { background: var(--gold); border-color: var(--gold); color: #fff; }
+    .btn-filled:hover { background: var(--gold-dark); border-color: var(--gold-dark); }
+
+    /* ─── Fade-in ─── */
+    .fade-in {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: none; }
+
+    /* ═══════════════════════════════
+       NAVIGATION
+    ═══════════════════════════════ */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 22px 44px;
+      transition: padding 0.35s, background 0.35s, box-shadow 0.35s;
+    }
+    #navbar.scrolled {
+      background: rgba(253,251,248,0.96);
+      backdrop-filter: blur(12px);
+      padding: 14px 44px;
+      box-shadow: 0 1px 18px rgba(0,0,0,0.07);
+    }
+
+    .nav-logo {
+      font-family: 'ZCOOL XiaoWei', 'Noto Serif SC', 'Songti SC', serif;
+      font-size: 1.65rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: #fff; text-decoration: none;
+      transition: color 0.35s;
+    }
+    #navbar.scrolled .nav-logo { color: var(--dark); }
+
+    .nav-links { display: flex; gap: 28px; list-style: none; margin-left: 0; }
+    .nav-links a {
+      font-size: 0.75rem; letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.88); text-decoration: none;
+      transition: color 0.25s;
+      font-family: 'Noto Sans SC', sans-serif;
+    }
+    #navbar.scrolled .nav-links a { color: var(--muted); }
+    .nav-links a:hover { color: var(--gold) !important; }
+
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: 0; }
+    .hamburger span { display: block; width: 22px; height: 1.5px; background: #fff; transition: background 0.35s; }
+    #navbar.scrolled .hamburger span { background: var(--dark); }
+
+    #mobileMenu {
+      display: none; position: fixed; inset: 0; z-index: 950;
+      background: var(--warm-white);
+      flex-direction: column; align-items: center; justify-content: center;
+      gap: 28px;
+      padding: 92px 28px 92px;
+    }
+    #mobileMenu.open { display: flex; }
+    .mobile-menu-brand {
+      position: absolute; top: 34px; left: 50%; transform: translateX(-50%);
+      font-family: 'ZCOOL XiaoWei', 'Noto Serif SC', 'Songti SC', serif;
+      font-size: 1.72rem; letter-spacing: 0.08em; color: var(--dark);
+      white-space: nowrap;
+    }
+    .mobile-menu-brand span { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--gold); }
+    .mobile-menu-links { display: flex; flex-direction: column; align-items: center; gap: 30px; }
+    #mobileMenu a { font-size: 1.05rem; letter-spacing: 0.14em; color: var(--dark); text-decoration: none; }
+    #mobileMenu a:hover { color: var(--gold); }
+    .mobile-rsvp { position: absolute; bottom: 38px; font-size: .72rem !important; color: #fff !important; }
+    .mobile-close {
+      position: absolute; top: 22px; right: 28px;
+      font-size: 1.6rem; cursor: pointer;
+      background: none; border: none; color: var(--dark);
+    }
+
+    /* ═══════════════════════════════
+       § HOME
+    ═══════════════════════════════ */
+    #home {
+      height: 100vh; min-height: 680px;
+      position: relative;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; overflow: hidden;
+    }
+
+    .hero-bg-fallback {
+      position: absolute; inset: 0;
+      background: linear-gradient(145deg, #2e1f17 0%, #5c3d2e 45%, #8b6230 100%);
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+      opacity: 0; transition: opacity 1s ease;
+    }
+    .hero-bg.loaded { opacity: 1; }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom,
+        rgba(0,0,0,.12) 0%, rgba(0,0,0,.42) 55%, rgba(0,0,0,.58) 100%);
+    }
+
+    .hero-content { position: relative; z-index: 2; color: #fff; padding: 20px; }
+
+    .hero-eyebrow {
+      font-size: 0.7rem; letter-spacing: 0.38em;
+      opacity: .82; margin-bottom: 22px;
+      font-family: 'Noto Sans SC', sans-serif;
+    }
+
+    .hero-names {
+      font-family: 'ZCOOL XiaoWei', 'Noto Serif SC', 'Songti SC', serif;
+      font-size: clamp(3.8rem, 9vw, 6.6rem);
+      font-weight: 400;
+      line-height: 1.08;
+      letter-spacing: 0.08em;
+      margin-bottom: 24px;
+      text-shadow: 0 6px 28px rgba(0,0,0,.25);
+    }
+    .hero-names .amp {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: .52em;
+      opacity: .82;
+      display: block;
+      line-height: .9;
+      letter-spacing: 0;
+    }
+
+    .hero-meta { font-size: 0.72rem; letter-spacing: 0.32em; opacity: .88; margin-bottom: 10px; }
+    .hero-location {
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.32em;
+      opacity: .88;
+      margin-bottom: 22px;
+    }
+
+    /* Hero Bible verse */
+    .hero-verse {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 0.85rem; font-style: italic;
+      opacity: .82; line-height: 1.8;
+      margin-bottom: 44px;
+      max-width: 480px; margin-left: auto; margin-right: auto;
+    }
+    .hero-verse cite { font-size: 0.68rem; display: block; margin-top: 6px; opacity: .7; letter-spacing: 0.1em; }
+
+    .countdown { display: flex; gap: 28px; justify-content: center; margin-bottom: 44px; }
+    .cd-item { text-align: center; }
+    .cd-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem; font-weight: 300;
+      line-height: 1; display: block;
+    }
+    .cd-label { font-size: 0.58rem; letter-spacing: 0.18em; opacity: .7; display: block; margin-top: 6px; }
+
+    .scroll-hint {
+      position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%);
+      color: rgba(255,255,255,.62); font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+      pointer-events: none;
+    }
+    .scroll-line {
+      width: 1px; height: 38px;
+      background: rgba(255,255,255,.36);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    @keyframes scrollPulse {
+      0%,100% { opacity: .36; transform: scaleY(1); }
+      50%      { opacity: 1;   transform: scaleY(.55); }
+    }
+
+    /* ═══════════════════════════════
+       § STORY
+    ═══════════════════════════════ */
+    #story { background: var(--cream); padding: 110px 0; }
+
+    .story-grid {
+      display: grid; grid-template-columns: 35% 1fr;
+      gap: 72px; align-items: center;
+    }
+
+    .story-image-wrap { position: relative; aspect-ratio: 3/4; overflow: hidden; }
+    .story-image-wrap img {
+      width: 100%; height: 100%; object-fit: cover;
+      object-position: center 70%;
+      transition: transform 0.6s ease;
+    }
+    .story-image-wrap:hover img { transform: scale(1.04); }
+    .story-frame {
+      position: absolute; inset: 16px;
+      border: 1px solid rgba(201,169,110,.38);
+      pointer-events: none;
+    }
+
+    /* Small cross ornament on the frame */
+    .story-frame::after {
+      content: '✝';
+      position: absolute;
+      bottom: -12px; left: 50%; transform: translateX(-50%);
+      background: var(--cream);
+      padding: 0 10px;
+      color: var(--gold);
+      font-size: 0.85rem;
+    }
+
+    .story-copy p {
+      font-size: .88rem; line-height: 2;
+      color: var(--muted); margin-bottom: 16px;
+    }
+
+    .story-timeline { margin-top: 36px; display: flex; flex-direction: column; gap: 28px; }
+    .tl-item { display: flex; gap: 22px; }
+    .tl-year {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 2.25rem; font-weight: 300;
+      color: var(--gold); min-width: 64px;
+      padding-top: 2px; line-height: 1;
+    }
+    .tl-body h4 { font-size: .75rem; letter-spacing: .12em; margin-bottom: 5px; font-weight: 500; }
+    .tl-body p  { font-size: .84rem; line-height: 1.85; color: var(--muted); }
+
+    /* ═══════════════════════════════
+       § VERSE BANNER (between Story & Moments)
+    ═══════════════════════════════ */
+    .verse-banner {
+      background: var(--dark);
+      padding: 72px 40px;
+      text-align: center;
+    }
+    .verse-banner .cross { font-size: 1.4rem; color: var(--gold); display: block; margin-bottom: 20px; }
+    .verse-banner blockquote {
+      font-family: 'Noto Serif SC', serif;
+      font-size: clamp(1.1rem, 2.5vw, 1.55rem);
+      font-weight: 300; color: #fff;
+      line-height: 1.9; max-width: 800px; margin: 0 auto;
+    }
+    .verse-banner cite {
+      display: block; margin-top: 18px;
+      font-size: 0.72rem; letter-spacing: 0.18em;
+      color: var(--gold); font-style: normal;
+    }
+
+    /* ═══════════════════════════════
+       § MOMENTS
+    ═══════════════════════════════ */
+    #moments { background: var(--warm-white); }
+
+    .moments-intro { text-align: center; padding: 110px 0 66px; }
+    .moments-intro .divider { margin: 22px auto; }
+
+    .moment-item {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 520px;
+    }
+    .moment-item:nth-child(even) .moment-img  { order: 2; }
+    .moment-item:nth-child(even) .moment-copy { order: 1; }
+
+    .moment-img { overflow: hidden; }
+    .moment-img img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      transition: transform 0.7s ease;
+    }
+    .moment-item:hover .moment-img img { transform: scale(1.04); }
+
+    .moment-copy {
+      background: var(--cream);
+      padding: 64px 60px;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .moment-copy .section-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem;
+      font-weight: 300;
+      font-style: italic;
+      letter-spacing: 0.05em;
+      text-transform: none;
+      color: var(--border);
+      line-height: 1;
+      margin-bottom: 18px;
+    }
+    .moment-copy h3 {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 1.6rem; font-weight: 400;
+      margin-bottom: 18px;
+    }
+    .moment-copy p { font-size: .86rem; line-height: 2; color: var(--muted); }
+
+    /* ═══════════════════════════════
+       § GALLERY
+    ═══════════════════════════════ */
+    #gallery { background: var(--dark); padding: 90px 0; margin-top: 60px; }
+    #gallery .section-title { color: #fff; }
+
+    .gallery-header { text-align: center; margin-bottom: 56px; }
+    .gallery-header .divider { margin: 22px auto; }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 7px;
+    }
+    .gallery-item:nth-child(1),
+    .gallery-item:nth-child(6),
+    .gallery-item:nth-child(11) { grid-column: span 2; }
+    .gallery-item:nth-child(1),
+    .gallery-item:nth-child(6),
+    .gallery-item:nth-child(11) { aspect-ratio: 16/7; }
+
+    .gallery-item {
+      overflow: hidden; cursor: pointer;
+      position: relative; aspect-ratio: 1;
+    }
+    .gallery-item img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      filter: brightness(.88);
+      transition: transform 0.5s ease, filter 0.5s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.06); filter: brightness(1); }
+    .gallery-overlay {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: transparent; transition: background 0.3s;
+    }
+    .gallery-item:hover .gallery-overlay { background: rgba(0,0,0,.2); }
+    .gallery-zoom { color: #fff; font-size: 1.5rem; opacity: 0; transition: opacity 0.3s; }
+    .gallery-item:hover .gallery-zoom { opacity: 1; }
+
+    /* Lightbox */
+    #lightbox {
+      display: none; position: fixed; inset: 0; z-index: 2000;
+      background: rgba(0,0,0,.95);
+      align-items: center; justify-content: center;
+    }
+    #lightbox.active { display: flex; }
+    #lightbox img { max-width: 90vw; max-height: 90vh; object-fit: contain; }
+    .lb-close {
+      position: absolute; top: 20px; right: 28px;
+      color: #fff; font-size: 2rem; opacity: .7;
+      cursor: pointer; background: none; border: none;
+      transition: opacity 0.2s;
+    }
+    .lb-close:hover { opacity: 1; }
+    .lb-nav {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      color: #fff; font-size: 2.2rem; opacity: .65;
+      cursor: pointer; background: none; border: none;
+      padding: 16px; transition: opacity 0.2s;
+    }
+    .lb-nav:hover { opacity: 1; }
+    .lb-prev { left: 10px; }
+    .lb-next { right: 10px; }
+
+    /* Gallery show-more */
+    .gallery-item:nth-child(n+6) { display: none; }
+    #galleryGrid.show-all .gallery-item { display: block; }
+
+    .gallery-more-wrap { text-align: center; padding: 36px 24px 0; }
+    .btn-gallery-more {
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 0.72rem; font-weight: 400;
+      letter-spacing: 0.22em;
+      padding: 13px 44px;
+      border: 1px solid rgba(255,255,255,0.45);
+      background: transparent;
+      color: rgba(255,255,255,0.82);
+      cursor: pointer;
+      transition: background 0.25s, border-color 0.25s, color 0.25s;
+    }
+    .btn-gallery-more:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.75);
+      color: #fff;
+    }
+
+    /* ═══════════════════════════════
+       § SCHEDULE
+    ═══════════════════════════════ */
+    #schedule { background: var(--cream); padding: 110px 0 0; }
+
+    .schedule-header { text-align: center; margin-bottom: 70px; }
+    .schedule-header .divider { margin: 22px auto; }
+    .schedule-header p { font-size: .85rem; color: var(--muted); max-width: 420px; margin: 0 auto; line-height: 1.9; }
+
+    .schedule-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-bottom: 80px; }
+
+    .schedule-col h3 {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 1.4rem; font-weight: 400;
+      margin-bottom: 28px; padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sched-item { display: flex; gap: 22px; padding: 22px 0; border-bottom: 1px solid var(--border); }
+    .sched-time {
+      font-size: .68rem; letter-spacing: .1em;
+      color: var(--gold); font-weight: 500;
+      min-width: 78px; padding-top: 3px;
+    }
+    .sched-info h4 { font-size: .8rem; font-weight: 500; letter-spacing: .04em; margin-bottom: 5px; }
+    .sched-info p  { font-size: .8rem; color: var(--muted); line-height: 1.8; }
+    .sched-info .loc { font-size: .72rem; color: var(--gold); margin-top: 5px; }
+    .sched-info .loc a { color: var(--gold); text-decoration: none; }
+    .sched-info .loc a:hover { text-decoration: underline; }
+
+    /* Tag for Christian elements */
+    .sched-tag {
+      display: inline-block;
+      font-size: .6rem; letter-spacing: .08em;
+      color: var(--gold); border: 1px solid var(--gold);
+      padding: 1px 7px; margin-left: 6px; vertical-align: middle;
+    }
+
+
+    .dinner-invite-note {
+      margin: 18px 0;
+      padding: 18px 22px;
+      border: 1px solid rgba(201,169,110,.42);
+      background: rgba(253,251,248,.72);
+      text-align: center;
+    }
+    .dinner-invite-note h4 {
+      font-family: 'Noto Serif SC', serif;
+      font-size: .86rem;
+      font-weight: 400;
+      letter-spacing: .08em;
+      color: var(--gold-dark);
+      margin-bottom: 8px;
+    }
+    .dinner-invite-note p {
+      font-size: .8rem;
+      line-height: 1.9;
+      color: var(--muted);
+    }
+
+    /* RSVP banner */
+    .rsvp-banner {
+      background: linear-gradient(155deg, #6a1828 0%, var(--dark) 48%, #1e0c08 100%);
+      color: #fff;
+      text-align: center; padding: 64px 40px;
+      position: relative; overflow: hidden;
+    }
+    /* subtle diagonal sheen */
+    .rsvp-banner::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(
+        -52deg, transparent, transparent 28px,
+        rgba(201,169,110,.045) 28px, rgba(201,169,110,.045) 29px
+      );
+    }
+    /* gold double-line top border */
+    .rsvp-banner::after {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 7px;
+      background:
+        linear-gradient(90deg, transparent 0%, var(--gold) 18%, #F0D878 50%, var(--gold) 82%, transparent 100%) top    / 100% 2.5px no-repeat,
+        linear-gradient(90deg, transparent 0%, var(--gold-dark) 18%, var(--gold) 50%, var(--gold-dark) 82%, transparent 100%) bottom / 100% 1.5px no-repeat;
+    }
+    .rsvp-ornament {
+      display: flex; align-items: center; justify-content: center;
+      gap: 14px; margin-bottom: 20px; position: relative;
+    }
+    .rsvp-ornament .lan { font-size: 1.4rem; }
+    .rsvp-ornament .rule {
+      width: 52px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .rsvp-ornament .xi {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 1.05rem; color: var(--gold);
+      letter-spacing: .05em;
+    }
+    .rsvp-banner h3 {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 2rem; font-weight: 300;
+      letter-spacing: .1em;
+      margin-bottom: 16px; position: relative;
+    }
+    .rsvp-banner p {
+      font-size: .83rem; color: rgba(255,255,255,.58);
+      max-width: 500px; margin: 0 auto 36px; line-height: 1.95;
+      position: relative;
+    }
+
+    /* ═══════════════════════════════
+       § GIFT
+    ═══════════════════════════════ */
+    #gift { background: var(--warm-white); padding: 72px 0; }
+
+    .gift-header { text-align: center; margin-bottom: 40px; }
+    .gift-header .divider { margin: 22px auto; }
+    .gift-header p { font-size: .84rem; color: var(--muted); max-width: 560px; margin: 0 auto; line-height: 1.85; }
+
+    .gift-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; margin-bottom: 36px; }
+    .gift-card {
+      background: var(--cream); padding: 34px 28px;
+      text-align: center; transition: background 0.28s;
+    }
+    .gift-card:hover { background: #eedec8; }
+    .gift-icon { font-size: 1.65rem; display: block; margin-bottom: 14px; }
+    .gift-card h3 {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 1.25rem; font-weight: 400; margin-bottom: 10px;
+    }
+    .gift-card p { font-size: .78rem; color: var(--muted); line-height: 1.75; margin-bottom: 16px; }
+    .etransfer-display { border-top: 1px solid var(--border); padding-top: 14px; margin-top: auto; }
+    .etransfer-label { font-size: .6rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 5px; }
+    .etransfer-email { font-size: .8rem; color: var(--gold-dark); letter-spacing: .03em; }
+
+    .gift-note {
+      border: 1px solid var(--border);
+      padding: 34px 38px; text-align: center;
+      max-width: 720px; margin: 0 auto;
+    }
+    .gift-note .cross { font-size: 1rem; color: var(--gold); display: block; margin-bottom: 16px; }
+    .gift-note p {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 1.02rem; color: var(--dark); line-height: 1.8;
+    }
+
+    /* ═══════════════════════════════
+       FOOTER
+    ═══════════════════════════════ */
+    footer {
+      background: var(--dark); color: rgba(255,255,255,.42);
+      text-align: center; padding: 60px 40px;
+    }
+    .footer-cross { font-size: 1.1rem; color: var(--gold); display: block; margin-bottom: 16px; }
+    .footer-names {
+      font-family: 'ZCOOL XiaoWei', 'Noto Serif SC', 'Songti SC', serif;
+      font-size: 2.35rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .footer-date { font-size: .68rem; letter-spacing: .3em; color: var(--gold); margin-bottom: 20px; }
+    .footer-verse {
+      font-family: 'Noto Serif SC', serif;
+      font-style: italic; font-size: .82rem;
+      color: rgba(255,255,255,.45); line-height: 1.8; margin-bottom: 16px;
+    }
+    footer p { font-size: .7rem; }
+
+
+    /* Active nav link */
+    .nav-links a.active { color: var(--gold) !important; }
+
+    /* Push sections below fixed nav when jumping via anchor */
+    section { scroll-margin-top: 76px; }
+
+    /* Accessibility: reduce motion for users who prefer it */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .fade-in { opacity: 1; transform: none; }
+    }
+
+    /* ═══════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════ */
+    @media (max-width: 880px) {
+      section { padding: 72px 0; }
+      .container { padding: 0 24px; }
+      #navbar, #navbar.scrolled { padding: 14px 24px; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+
+      .story-grid { grid-template-columns: 1fr; gap: 40px; }
+      .story-image-wrap { aspect-ratio: 4/3; max-width: 480px; margin: 0 auto; }
+
+      .moment-item,
+      .moment-item:nth-child(even) {
+        grid-template-columns: 1fr; min-height: auto;
+      }
+      /* text on top, image below on narrow */
+      .moment-copy,
+      .moment-item:nth-child(even) .moment-copy { order: -1; padding: 36px 28px; }
+      .moment-img,
+      .moment-item:nth-child(even) .moment-img  { order: 0; aspect-ratio: 16/9; }
+
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-item:nth-child(1),
+      .gallery-item:nth-child(6),
+      .gallery-item:nth-child(11) { grid-column: span 2; }
+
+      .schedule-cols { grid-template-columns: 1fr; gap: 40px; }
+      .gift-cards { grid-template-columns: 1fr; }
+      
+      .countdown { gap: 18px; }
+    }
+
+    @media (max-width: 540px) {
+      .hero-names { font-size: 3.45rem; letter-spacing: 0.04em; }
+      .cd-num { font-size: 2.1rem; }
+      /* keep 2-column gallery even on smallest screens */
+    }
+  </style>
+</head>
+<body>
+<noscript>此网页需要启用 JavaScript 才能显示倒计时、移动菜单和相册预览。</noscript>
+
+<!-- ────────────── NAV ────────────── -->
+<nav id="navbar">
+  <a href="#home" class="nav-logo">刘博玺 <span style="font-family:'Cormorant Garamond',serif;font-style:italic;opacity:.78;">&amp;</span> 何晓雪</a>
+  <ul class="nav-links">
+    <li><a href="#home">主页</a></li>
+    <li><a href="#story">我们的故事</a></li>
+    <li><a href="#moments">美好时光</a></li>
+    <li><a href="#gallery">相册</a></li>
+    <li><a href="#schedule">婚礼流程</a></li>
+    <li><a href="#gift">感恩馈赠</a></li>
+  </ul>
+  <button class="hamburger" type="button" onclick="openMenu()" aria-label="打开菜单" aria-controls="mobileMenu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- 移动端菜单 -->
+<div id="mobileMenu" role="dialog" aria-modal="true" aria-hidden="true">
+  <button class="mobile-close" type="button" onclick="closeMenu()" aria-label="关闭菜单">✕</button>
+  <div class="mobile-menu-brand">刘博玺 <span>&amp;</span> 何晓雪</div>
+  <div class="mobile-menu-links">
+    <a href="#home"     onclick="closeMenu()">主页</a>
+    <a href="#story"    onclick="closeMenu()">我们的故事</a>
+    <a href="#moments"  onclick="closeMenu()">美好时光</a>
+    <a href="#gallery"  onclick="closeMenu()">相册</a>
+    <a href="#schedule" onclick="closeMenu()">婚礼流程</a>
+    <a href="#gift"     onclick="closeMenu()">感恩馈赠</a>
+  </div>
+  <a href="rsvp.html" target="_blank" rel="noopener" class="btn btn-filled mobile-rsvp" onclick="closeMenu()">晚宴回复</a>
+</div>
+
+
+<!-- ════════════════════════════════
+     § 主页 · HOME
+════════════════════════════════ -->
+<section id="home">
+  <div class="hero-bg-fallback"></div>
+  <!-- ★ 将 images/cover.jpg 替换为你们的封面照片 ★ -->
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">蒙主恩典 &nbsp;·&nbsp; 我们要结婚啦</p>
+
+    <!-- ★ 替换为真实姓名 ★ -->
+    <h1 class="hero-names">
+      刘博玺
+      <span class="amp">&amp;</span>
+      何晓雪
+    </h1>
+
+    <!-- ★ 替换为真实日期和地点 ★ -->
+    <p class="hero-meta">2026年9月12日 &nbsp;·&nbsp; 周六</p>
+    <p class="hero-location">汉密尔顿主恩国语宣道会</p>
+
+    <!-- 圣经金句 -->
+    <div class="hero-verse">
+      "我的良人属我，我也属他。"
+      <cite>— 雅歌 2:16</cite>
+    </div>
+
+    <div class="countdown" id="countdown">
+      <div class="cd-item"><span class="cd-num" id="cd-d">—</span><span class="cd-label">天</span></div>
+      <div class="cd-item"><span class="cd-num" id="cd-h">—</span><span class="cd-label">小时</span></div>
+      <div class="cd-item"><span class="cd-num" id="cd-m">—</span><span class="cd-label">分钟</span></div>
+      <div class="cd-item"><span class="cd-num" id="cd-s">—</span><span class="cd-label">秒</span></div>
+    </div>
+
+    <!-- ★ 将链接替换为你们的 Google 表单回复链接 ★ -->
+    <a href="rsvp.html" target="_blank" rel="noopener" class="btn btn-light">晚宴回复</a>
+  </div>
+
+  <div class="scroll-hint" aria-hidden="true">
+    <span>向下滚动</span>
+    <div class="scroll-line"></div>
+  </div>
+
+</section>
+
+
+<!-- ════════════════════════════════
+     § 故事 · STORY
+════════════════════════════════ -->
+<section id="story">
+  <div class="container">
+    <div class="story-grid">
+
+      <!-- 左：照片 -->
+      <div class="story-image-wrap fade-in">
+        <!-- ★ 替换为你们的照片 ★ -->
+        <img src="images/story.jpg"
+             onerror="this.src='https://picsum.photos/600/800?grayscale&random=1'"
+             alt="我们的故事" loading="lazy" decoding="async">
+        <div class="story-frame"></div>
+      </div>
+
+      <!-- 右：文字 -->
+      <div class="story-copy fade-in" style="transition-delay:.18s">
+        <span class="cross-accent">✝</span>
+        <span class="section-label">相遇相知</span>
+        <h2 class="section-title">我们的故事</h2>
+        <div class="divider"></div>
+
+        <!-- 我们的故事 -->
+        <p>
+          从羽毛球场上的一次邂逅，到手写情书与玫瑰里的真诚告白；
+          从彼此陪伴，到在主里同心同行，
+          我们一步一步看见上帝奇妙的带领。
+        </p>
+        <p>
+          感谢主让我们在相识、相爱与归向祂的路上彼此扶持。
+          如今，我们盼望在亲友的见证下，以誓言与爱进入婚姻，
+          一同建立愿意事奉耶和华的家。
+        </p>
+
+        <div class="verse-block">
+          <p>"耶和华上帝说：'那人独居不好，我要为他造一个配偶帮助他。'"</p>
+          <cite>— 创世记 2:18</cite>
+        </div>
+
+        <!-- 我们的时间线 -->
+        <div class="story-timeline">
+          <div class="tl-item">
+            <div class="tl-year">2022</div>
+            <div class="tl-body">
+              <h4>初次相遇</h4>
+              <p>羽毛球场上的邂逅，没想到成了永远的球友，和微信置顶的好友。</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year"></div>
+            <div class="tl-body">
+              <h4>表白</h4>
+              <p>手写情书一封，送上玫瑰一束，那句"我喜欢你"的双向奔赴。</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">2023</div>
+            <div class="tl-body">
+              <h4>同心同行</h4>
+              <p>她恒切祷告，他亦归向主，"二人若不同心，岂能同行呢？"<span style="white-space:nowrap;">【摩 3:3】</span></p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">2025</div>
+            <div class="tl-body">
+              <h4>求婚</h4>
+              <p>在亲友见证之下，他单膝跪地，"你愿意嫁给我吗？"</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">2026</div>
+            <div class="tl-body">
+              <h4>订婚</h4>
+              <p>双方父母会晤成功，我们收到满满的爱与祝福。</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year"></div>
+            <div class="tl-body">
+              <h4>在主里合而为一</h4>
+              <p>我们将在众人面前，以誓言与爱，在上帝的见证下，正式结合。<br>"至于我和我家，我们必定事奉耶和华。"<span style="white-space:nowrap;">【书 24:15】</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════
+     圣经金句横幅
+════════════════════════════════ -->
+<div class="verse-banner">
+  <span class="cross">✝</span>
+  <blockquote>
+    "爱是恒久忍耐，又有恩慈；爱是不嫉妒；爱是不自夸，不张狂，
+    不做害羞的事，不求自己的益处，不轻易发怒，不计算人的恶，
+    不喜欢不义，只喜欢真理；凡事包容，凡事相信，凡事盼望，凡事忍耐。
+    爱是永不止息。"
+    <cite>哥林多前书 13:4–8</cite>
+  </blockquote>
+</div>
+
+
+<!-- ════════════════════════════════
+     § 时光 · MOMENTS
+════════════════════════════════ -->
+<section id="moments" style="padding:0;">
+  <div class="container">
+    <div class="moments-intro">
+      <span class="section-label">珍贵回忆</span>
+      <h2 class="section-title">美好时光</h2>
+      <div class="divider divider-center"></div>
+    </div>
+  </div>
+
+  <!-- ★ 替换图片与文字，可增减板块 ★ -->
+
+  <div class="moment-item fade-in">
+    <div class="moment-img">
+      <img src="images/moment1.jpg"
+           onerror="this.src='https://picsum.photos/900/700?random=10'"
+           alt="美好时光一" loading="lazy" decoding="async">
+    </div>
+    <div class="moment-copy">
+      <span class="section-label">01</span>
+      <h3>第一次一起敬拜</h3>
+      <p>
+        那一晚的赞美会，灯光昏黄，诗歌轻柔。
+        我们并肩站着，各自闭眼祷告，
+        却在睁眼的瞬间，不约而同地望向彼此——
+        那一刻，心里有什么东西悄悄落定了。
+      </p>
+    </div>
+  </div>
+
+  <div class="moment-item fade-in">
+    <div class="moment-img">
+      <img src="images/moment2.jpg"
+           onerror="this.src='https://picsum.photos/900/700?random=20'"
+           alt="美好时光二" loading="lazy" decoding="async">
+    </div>
+    <div class="moment-copy">
+      <span class="section-label">02</span>
+      <h3>一起出行的旅途</h3>
+      <p>
+        一辆车、两个人、一路上数不清的笑声与祷告。
+        我们学会了在旅途中彼此迁就、彼此等候，
+        也在异乡的晨光里一起感谢主赐予的美好。
+      </p>
+    </div>
+  </div>
+
+  <div class="moment-item fade-in">
+    <div class="moment-img">
+      <img src="images/moment3.jpg"
+           onerror="this.src='https://picsum.photos/900/700?random=30'"
+           alt="求婚" loading="lazy" decoding="async">
+    </div>
+    <div class="moment-copy">
+      <span class="section-label">03</span>
+      <h3>求婚那一天</h3>
+      <p>
+        他悄悄布置好一切，然后若无其事地拉着她推开了门——
+        朋友们早已在里面等候，灯光、鲜花、气球、专属的天马行空。
+        她这才明白过来。
+        他深吸一口气，念出那些他反复练习过的话，
+        单膝跪地，把戒指轻轻戴上她的手指。
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════
+     § 相册 · GALLERY
+════════════════════════════════ -->
+<section id="gallery">
+  <div class="container">
+    <div class="gallery-header fade-in">
+      <span class="section-label">点滴时光</span>
+      <h2 class="section-title">我们的相册</h2>
+      <div class="divider divider-center"></div>
+    </div>
+  </div>
+
+  <!-- ★ 将 images/gallery*.jpg 替换为真实照片 ★ -->
+  <div class="gallery-grid" id="galleryGrid">
+    <div class="gallery-item" onclick="openLb(0)">
+      <img src="images/gallery1.jpg" alt="相册 1" loading="lazy" decoding="async">
+      <div class="gallery-overlay"><span class="gallery-zoom">&#43;</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLb(1)">
+      <img src="images/gallery2.jpg" alt="相册 2" loading="lazy" decoding="async">
+      <div class="gallery-overlay"><span class="gallery-zoom">&#43;</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLb(2)">
+      <img src="images/gallery3.jpg" alt="相册 3" loading="lazy" decoding="async">
+      <div class="gallery-overlay"><span class="gallery-zoom">&#43;</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLb(3)">
+      <img src="images/gallery4.jpg" alt="相册 4" loading="lazy" decoding="async">
+      <div class="gallery-overlay"><span class="gallery-zoom">&#43;</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLb(4)">
+      <img src="images/gallery5.jpg" alt="相册 5" loading="lazy" decoding="async">
+      <div class="gallery-overlay"><span class="gallery-zoom">&#43;</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLb(5)">
+      <img src="images/gallery6.jpg" alt="相册 6" loading="lazy" decoding="async">
+      <div class="gallery-overlay"><span class="gallery-zoom">&#43;</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLb(6)">
+      <img src="images/gallery7.jpg" alt="相册 7" loading="lazy" decoding="async">
+      <div class="gallery-overlay"><span class="gallery-zoom">&#43;</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLb(7)">
+      <img src="images/gallery8.jpg" alt="相册 8" loading="lazy" decoding="async">
+      <div class="gallery-overlay"><span class="gallery-zoom">&#43;</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLb(8)">
+      <img src="images/gallery9.jpg" alt="相册 9" loading="lazy" decoding="async">
+      <div class="gallery-overlay"><span class="gallery-zoom">&#43;</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLb(9)">
+      <img src="images/gallery10.jpg" alt="相册 10" loading="lazy" decoding="async">
+      <div class="gallery-overlay"><span class="gallery-zoom">&#43;</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLb(10)">
+      <img src="images/gallery11.jpg" alt="相册 11" loading="lazy" decoding="async">
+      <div class="gallery-overlay"><span class="gallery-zoom">&#43;</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLb(11)">
+      <img src="images/gallery12.jpg" alt="相册 12" loading="lazy" decoding="async">
+      <div class="gallery-overlay"><span class="gallery-zoom">&#43;</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLb(12)">
+      <img src="images/gallery13.jpg" alt="相册 13" loading="lazy" decoding="async">
+      <div class="gallery-overlay"><span class="gallery-zoom">&#43;</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLb(13)">
+      <img src="images/gallery14.jpg" alt="相册 14" loading="lazy" decoding="async">
+      <div class="gallery-overlay"><span class="gallery-zoom">&#43;</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLb(14)">
+      <img src="images/gallery15.jpg" alt="相册 15" loading="lazy" decoding="async">
+      <div class="gallery-overlay"><span class="gallery-zoom">&#43;</span></div>
+    </div>
+  </div>
+
+  <div class="gallery-more-wrap">
+    <button class="btn-gallery-more" id="galleryMoreBtn" onclick="toggleGallery()">查看更多照片</button>
+  </div>
+</section>
+
+<!-- 灯箱 -->
+<div id="lightbox">
+  <button class="lb-close" type="button" onclick="closeLb()" aria-label="关闭相册预览">✕</button>
+  <button class="lb-nav lb-prev" type="button" onclick="shiftLb(-1)" aria-label="上一张">&#8592;</button>
+  <img id="lbImg" src="" alt="">
+  <button class="lb-nav lb-next" type="button" onclick="shiftLb(1)" aria-label="下一张">&#8594;</button>
+</div>
+
+
+<!-- ════════════════════════════════
+     § 流程 · SCHEDULE
+════════════════════════════════ -->
+<section id="schedule">
+  <div class="container">
+
+    <div class="schedule-header fade-in">
+      <span class="section-label">婚礼当日</span>
+      <h2 class="section-title">婚礼流程</h2>
+      <div class="divider divider-center"></div>
+      <p>证婚典礼欢迎所有亲友莅临，无需回复。以下是当天的详细安排。</p>
+    </div>
+
+    <div class="schedule-cols">
+
+      <!-- 证婚典礼与婚宴 -->
+      <div class="schedule-col fade-in">
+        <h3>证婚典礼与婚宴</h3>
+
+        <div class="sched-item">
+          <div class="sched-time">1:30 PM</div>
+          <div class="sched-info">
+            <h4>来宾就座</h4>
+            <p>欢迎来宾入场，请于 2:00 PM 前就座。</p>
+            <p class="loc">汉密尔顿主恩国语宣道会 — 主堂</p>
+          </div>
+        </div>
+
+        <div class="sched-item">
+          <div class="sched-time">2:00 PM</div>
+          <div class="sched-info">
+            <h4>敬拜赞美 <span class="sched-tag">✝</span></h4>
+            <p>全体共同敬拜，以歌声将荣耀归于主，开启这神圣的典礼。</p>
+            <p class="loc">汉密尔顿主恩国语宣道会 — 主堂</p>
+          </div>
+        </div>
+
+        <div class="sched-item">
+          <div class="sched-time">2:20 PM</div>
+          <div class="sched-info">
+            <h4>证道 <span class="sched-tag">✝</span></h4>
+            <p>牧师分享主题信息，诠释婚姻在圣经中的真义与呼召。</p>
+          </div>
+        </div>
+
+        <div class="sched-item">
+          <div class="sched-time">2:50 PM</div>
+          <div class="sched-info">
+            <h4>交换誓言与戒指 <span class="sched-tag">✝</span></h4>
+            <p>新人在上帝与众人面前立下誓言，交换信物，合而为一。</p>
+          </div>
+        </div>
+
+        <div class="sched-item">
+          <div class="sched-time">3:10 PM</div>
+          <div class="sched-info">
+            <h4>祷告祝福与宣布成婚 <span class="sched-tag">✝</span></h4>
+            <p>牧师为新人祷告，宣告婚姻成立，全场见证。</p>
+          </div>
+        </div>
+
+        <div class="sched-item">
+          <div class="sched-time">3:30 PM</div>
+          <div class="sched-info">
+            <h4>合影留念</h4>
+            <p>新人与家人、来宾拍摄合影，留住这美好瞬间。</p>
+            <p class="loc">教堂前厅及户外区域</p>
+          </div>
+        </div>
+
+        <div class="sched-item">
+          <div class="sched-time">4:00 PM</div>
+          <div class="sched-info">
+            <h4>证婚典礼结束</h4>
+            <p>感谢大家一同见证这蒙主恩典的时刻，愿上帝祝福每一位亲友平安喜乐。</p>
+          </div>
+        </div>
+
+        <div class="dinner-invite-note">
+          <h4>晚宴温馨提示</h4>
+          <p>若您收到晚宴邀请，诚挚欢迎您于晚间移步宴会厅，与我们继续同庆；若您仅参加证婚典礼，您的见证与祝福对我们同样珍贵。</p>
+        </div>
+
+        <div class="sched-item">
+          <div class="sched-time">7:00 PM</div>
+          <div class="sched-info">
+            <h4>婚宴入座</h4>
+            <p>欢迎受邀来宾入席，请于 7:15 PM 前就座。</p>
+            <p class="loc">宴会厅</p>
+          </div>
+        </div>
+
+        <div class="sched-item">
+          <div class="sched-time">8:30 PM</div>
+          <div class="sched-info">
+            <h4>互动小游戏</h4>
+            <p>与亲友一同参与轻松有趣的互动环节，分享欢笑与祝福。</p>
+          </div>
+        </div>
+
+        <div class="sched-item">
+          <div class="sched-time">10:00 PM</div>
+          <div class="sched-info">
+            <h4>晚会结束</h4>
+            <p>感谢您的陪伴，愿上帝一路保守您平安归家。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 地点与出行 -->
+      <div class="schedule-col fade-in" style="transition-delay:.2s">
+        <h3>地点与出行</h3>
+
+        <div class="sched-item">
+          <div class="sched-time" style="color:var(--muted);font-size:.62rem;font-weight:400;">仪式</div>
+          <div class="sched-info">
+            <h4>汉密尔顿主恩国语宣道会</h4>
+            <p>31 Summit Ave, Hamilton, ON, L8V 2R7</p>
+            <p class="loc">
+              <a href="https://www.google.com/maps/search/?api=1&query=31%20Summit%20Ave%2C%20Hamilton%2C%20ON%2C%20L8V%202R7" target="_blank" rel="noopener">仪式地点地图 ↗</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="sched-item">
+          <div class="sched-time" style="color:var(--muted);font-size:.62rem;font-weight:400;">婚宴</div>
+          <div class="sched-info">
+            <h4>Mandarin 餐厅</h4>
+            <p>1508 Upper James St, Hamilton, ON, L9B 1K3</p>
+            <p class="loc">
+              <a href="https://www.google.com/maps/search/?api=1&query=1508%20Upper%20James%20St%2C%20Hamilton%2C%20ON%2C%20L9B%201K3" target="_blank" rel="noopener">婚宴地点地图 ↗</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="sched-item">
+          <div class="sched-time" style="color:var(--muted);font-size:.62rem;font-weight:400;">停车</div>
+          <div class="sched-info">
+            <h4>停车指引</h4>
+            <p>教堂提供免费停车场，附近亦可免费路边停车。</p>
+          </div>
+        </div>
+
+        <div class="sched-item">
+          <div class="sched-time" style="color:var(--muted);font-size:.62rem;font-weight:400;">着装</div>
+          <div class="sched-info">
+            <h4>着装建议</h4>
+            <p>正式礼服或精致休闲装，以简洁优雅为宜，方便出席圣洁的礼拜典礼。</p>
+          </div>
+        </div>
+
+        <div class="sched-item">
+          <div class="sched-time" style="color:var(--muted);font-size:.62rem;font-weight:400;">回复</div>
+          <div class="sched-info">
+            <h4>回复截止日期</h4>
+            <p>晚宴受邀嘉宾请于 <strong>2026年7月1日</strong> 前回复。</p>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /.schedule-cols -->
+  </div><!-- /.container -->
+
+  <!-- RSVP 横幅 -->
+  <div class="rsvp-banner fade-in">
+    <div class="rsvp-ornament">
+      <span class="lan">🏮</span>
+      <div class="rule"></div>
+      <span class="xi">囍</span>
+      <div class="rule"></div>
+      <span class="lan">🏮</span>
+    </div>
+    <h3>晚宴出席回复</h3>
+    <p>
+      证婚典礼欢迎所有亲友，无需回复。<br>
+      若您已收到晚宴邀请码，请于 2026年7月1日 前登入回复。
+    </p>
+    <a href="rsvp.html" target="_blank" rel="noopener" class="btn btn-light">晚宴回复</a>
+  </div>
+
+</section>
+
+
+<!-- ════════════════════════════════
+     § 礼物 · GIFT
+════════════════════════════════ -->
+<section id="gift">
+  <div class="container">
+
+    <div class="gift-header fade-in">
+      <span class="section-label">礼物与祝福</span>
+      <h2 class="section-title">感恩馈赠</h2>
+      <div class="divider divider-center"></div>
+      <p>
+        您的莅临与祝福，是我们最珍贵的礼物。
+        若您有心馈赠，以下方式可供参考，
+        我们将感谢主，也感谢您对我们新生活的支持。
+      </p>
+    </div>
+
+    <div class="gift-cards">
+
+      <div class="gift-card fade-in">
+        <span class="gift-icon">🧧</span>
+        <h3>礼金红包</h3>
+        <p>
+          我们正在为新家和蜜月旅行储蓄，
+          礼金将成为我们开启新生活最实际的帮助。
+          欢迎通过 E-Transfer 转账。
+        </p>
+        <div class="etransfer-display">
+          <span class="etransfer-label">E-Transfer</span>
+          <!-- 邮箱由 JS 运行时组装，防止爬虫 -->
+          <span class="etransfer-btn etransfer-email">···</span>
+        </div>
+      </div>
+
+      <div class="gift-card fade-in" style="transition-delay:.14s">
+        <span class="gift-icon">✈️</span>
+        <h3>蜜月基金</h3>
+        <p>
+          帮助我们在蜜月旅途中留下更多美好回忆——
+          一顿浪漫晚餐、一次日落巡游，
+          每一份心意都将化为旅途中的感动。
+        </p>
+        <div class="etransfer-display">
+          <span class="etransfer-label">E-Transfer</span>
+          <span class="etransfer-btn etransfer-email">···</span>
+        </div>
+      </div>
+
+      <div class="gift-card fade-in" style="transition-delay:.28s">
+        <span class="gift-icon">💝</span>
+        <h3>您的心意</h3>
+        <p>
+          也许是您在书架前驻足良久，终于取下那本一直想推荐给朋友的书；
+          也许是一张礼品卡，附上几行悄悄话；
+          也许只是某件让您忽然想到我们的小物件——
+          我们在乎的，从来不是礼物本身，
+          而是您为我们停下脚步的那一刻心意。
+        </p>
+      </div>
+
+    </div>
+
+    <div class="gift-note fade-in">
+      <span class="cross">✝</span>
+      <p>
+        "你们要把一切的忧虑卸给上帝，因为祂顾念你们。"<br>
+        <span style="font-size:.82rem; color:var(--muted);">— 彼得前书 5:7</span><br><br>
+        感谢您的祝福与同行，愿上帝赐福给您及您的家人。
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════
+     FOOTER
+════════════════════════════════ -->
+<footer>
+  <span class="footer-cross">✝</span>
+  <!-- ★ 替换姓名与日期 ★ -->
+  <p class="footer-names">刘博玺 &amp; 何晓雪</p>
+  <p class="footer-date">2026年9月12日</p>
+  <p class="footer-verse">
+    "我们爱，因为上帝先爱我们。"<br>
+    <span style="font-size:.68rem; letter-spacing:.1em;">— 约翰一书 4:19</span>
+  </p>
+  <p>在主恩典中同心同行 &nbsp;·&nbsp; 感谢所有亲友的同在与祝福</p>
+</footer>
+
+
+<!-- ════════════════════════════════
+     SCRIPTS
+════════════════════════════════ -->
+<script>
+  /* ── 邮箱防爬虫：运行时拼装，HTML 源码中不出现明文 ── */
+  (function() {
+    const u = 'liuboxi' + '2019';
+    const d = 'gmail'   + '.com';
+    const e = u + '@' + d;
+    document.querySelectorAll('.etransfer-btn').forEach(el => {
+      el.textContent = e;
+    });
+  })();
+
+  /* ── 相册展开/收起 ── */
+  function toggleGallery() {
+    const grid = document.getElementById('galleryGrid');
+    const btn  = document.getElementById('galleryMoreBtn');
+    const expanded = grid.classList.toggle('show-all');
+    btn.textContent = expanded ? '收起照片' : '查看更多照片';
+  }
+
+  /* ── 导航栏滚动效果 ── */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  /* ── 移动菜单 ── */
+  function openMenu()  {
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.add('open');
+    menu.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.remove('open');
+    menu.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  /* ── 封面图片（加载失败时保留渐变背景）── */
+  const heroBg = document.getElementById('heroBg');
+  const coverImg = new Image();
+  coverImg.onload = () => {
+    heroBg.style.backgroundImage = "url('images/cover.jpg')";
+    heroBg.classList.add('loaded');
+  };
+  coverImg.src = 'images/cover.jpg';
+
+  /* ── 倒计时 ──
+     ★ 将日期改为婚礼实际日期（本地时间）★  */
+  const weddingDate = new Date('2026-09-12T14:00:00');
+  function tick() {
+    const diff = weddingDate - Date.now();
+    if (diff <= 0) {
+      document.getElementById('countdown').innerHTML =
+        '<p style="font-size:1.05rem;opacity:.9;">今天就是这美好的日子！♥</p>';
+      if (typeof countdownTimer !== 'undefined') clearInterval(countdownTimer);
+      return;
+    }
+    const pad = n => String(n).padStart(2, '0');
+    document.getElementById('cd-d').textContent = pad(Math.floor(diff / 86400000));
+    document.getElementById('cd-h').textContent = pad(Math.floor(diff / 3600000) % 24);
+    document.getElementById('cd-m').textContent = pad(Math.floor(diff / 60000) % 60);
+    document.getElementById('cd-s').textContent = pad(Math.floor(diff / 1000) % 60);
+  }
+  const countdownTimer = setInterval(tick, 1000);
+  tick();
+
+  /* ── 当前区块高亮导航链接 ── */
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const navObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+  document.querySelectorAll('section[id]').forEach(s => navObserver.observe(s));
+
+  /* ── 滚动淡入动画 ── */
+  const io = new IntersectionObserver(
+    entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+    { threshold: 0.1 }
+  );
+  document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+
+  /* ── 相册灯箱 ── */
+  const galleryImages = [...document.querySelectorAll('.gallery-item img')];
+  let cur = 0;
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lbImg');
+
+  function getGallerySrc(i) {
+    return galleryImages[i]?.currentSrc || galleryImages[i]?.src || '';
+  }
+
+  function openLb(i)  {
+    cur = i;
+    lbImg.src = getGallerySrc(i);
+    lb.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLb()  {
+    lb.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  function shiftLb(d) {
+    cur = (cur + d + galleryImages.length) % galleryImages.length;
+    lbImg.src = getGallerySrc(cur);
+  }
+
+  lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('active')) return;
+    if (e.key === 'Escape')     closeLb();
+    if (e.key === 'ArrowLeft')  shiftLb(-1);
+    if (e.key === 'ArrowRight') shiftLb(1);
+  });
+</script>
+</body>
+</html>
