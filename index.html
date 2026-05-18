@@ -299,7 +299,7 @@
 
     /* Small cross ornament on the frame */
     .story-frame::after {
-      content: '✝';
+      content: '✝︎';
       position: absolute;
       bottom: -12px; left: 50%; transform: translateX(-50%);
       background: var(--cream);
@@ -551,6 +551,7 @@
     .rsvp-banner::before {
       content: '';
       position: absolute; inset: 0;
+      pointer-events: none;
       background: repeating-linear-gradient(
         -52deg, transparent, transparent 28px,
         rgba(201,169,110,.045) 28px, rgba(201,169,110,.045) 29px
@@ -614,6 +615,7 @@
     .etransfer-display { border-top: 1px solid var(--border); padding-top: 14px; margin-top: auto; }
     .etransfer-label { font-size: .6rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 5px; }
     .etransfer-email { font-size: .8rem; color: var(--gold-dark); letter-spacing: .03em; }
+    .etransfer-note  { font-size: .68rem; color: var(--muted); margin-top: 8px; line-height: 1.6; font-style: italic; }
 
     .gift-note {
       border: 1px solid var(--border);
@@ -636,7 +638,7 @@
     .footer-cross { font-size: 1.1rem; color: var(--gold); display: block; margin-bottom: 16px; }
     .footer-names {
       font-family: 'ZCOOL XiaoWei', 'Noto Serif SC', 'Songti SC', serif;
-      font-size: 2.35rem;
+      font-size: clamp(1.3rem, 5vw, 1.9rem);
       font-weight: 400;
       letter-spacing: 0.08em;
       color: #fff;
@@ -810,7 +812,7 @@
 
       <!-- 右：文字 -->
       <div class="story-copy fade-in" style="transition-delay:.18s">
-        <span class="cross-accent">✝</span>
+        <span class="cross-accent">✝︎</span>
         <span class="section-label">相遇相知</span>
         <h2 class="section-title">我们的故事</h2>
         <div class="divider"></div>
@@ -888,7 +890,7 @@
      圣经金句横幅
 ════════════════════════════════ -->
 <div class="verse-banner">
-  <span class="cross">✝</span>
+  <span class="cross">✝︎</span>
   <blockquote>
     "爱是恒久忍耐，又有恩慈；爱是不嫉妒；爱是不自夸，不张狂，
     不做害羞的事，不求自己的益处，不轻易发怒，不计算人的恶，
@@ -921,11 +923,11 @@
     </div>
     <div class="moment-copy">
       <span class="section-label">01</span>
-      <h3>第一次一起敬拜</h3>
+      <h3>一起带领敬拜</h3>
       <p>
-        那一晚的赞美会，灯光昏黄，诗歌轻柔。
-        我们并肩站着，各自闭眼祷告，
-        却在睁眼的瞬间，不约而同地望向彼此——
+        我们一同站在台上，用歌声和琴声赞美上帝。
+        曲终，我们献上祷告，却在睁眼的瞬间，
+        不约而同地望向彼此——
         那一刻，心里有什么东西悄悄落定了。
       </p>
     </div>
@@ -958,11 +960,9 @@
       <span class="section-label">03</span>
       <h3>求婚那一天</h3>
       <p>
-        他悄悄布置好一切，然后若无其事地拉着她推开了门——
-        朋友们早已在里面等候，灯光、鲜花、气球、专属的天马行空。
-        她这才明白过来。
-        他深吸一口气，念出那些他反复练习过的话，
-        单膝跪地，把戒指轻轻戴上她的手指。
+        灯光、鲜花、气球、好友，这是专属你的天马行空。
+        他单膝跪地，念出那些反复练习过的话，
+        把钻戒缓缓戴进她的无名指。
       </p>
     </div>
   </div>
@@ -1090,7 +1090,7 @@
         <div class="sched-item">
           <div class="sched-time">2:00 PM</div>
           <div class="sched-info">
-            <h4>敬拜赞美 <span class="sched-tag">✝</span></h4>
+            <h4>敬拜赞美 <span class="sched-tag">✝︎</span></h4>
             <p>全体共同敬拜，以歌声将荣耀归于主，开启这神圣的典礼。</p>
             <p class="loc">汉密尔顿主恩国语宣道会 — 主堂</p>
           </div>
@@ -1099,7 +1099,7 @@
         <div class="sched-item">
           <div class="sched-time">2:20 PM</div>
           <div class="sched-info">
-            <h4>证道 <span class="sched-tag">✝</span></h4>
+            <h4>证道 <span class="sched-tag">✝︎</span></h4>
             <p>牧师分享主题信息，诠释婚姻在圣经中的真义与呼召。</p>
           </div>
         </div>
@@ -1107,7 +1107,7 @@
         <div class="sched-item">
           <div class="sched-time">2:50 PM</div>
           <div class="sched-info">
-            <h4>交换誓言与戒指 <span class="sched-tag">✝</span></h4>
+            <h4>交换誓言与戒指 <span class="sched-tag">✝︎</span></h4>
             <p>新人在上帝与众人面前立下誓言，交换信物，合而为一。</p>
           </div>
         </div>
@@ -1115,7 +1115,7 @@
         <div class="sched-item">
           <div class="sched-time">3:10 PM</div>
           <div class="sched-info">
-            <h4>祷告祝福与宣布成婚 <span class="sched-tag">✝</span></h4>
+            <h4>祷告祝福与宣布成婚 <span class="sched-tag">✝︎</span></h4>
             <p>牧师为新人祷告，宣告婚姻成立，全场见证。</p>
           </div>
         </div>
@@ -1254,8 +1254,8 @@
       <div class="divider divider-center"></div>
       <p>
         您的莅临与祝福，是我们最珍贵的礼物。
-        若您有心馈赠，以下方式可供参考，
-        我们将感谢主，也感谢您对我们新生活的支持。
+        若您有心馈赠，以下方式可供参考，我们将感谢您对我们新生活的支持。
+        留言可备注您的姓名，方便我们日后致谢。
       </p>
     </div>
 
@@ -1265,9 +1265,8 @@
         <span class="gift-icon">🧧</span>
         <h3>礼金红包</h3>
         <p>
-          我们正在为新家和蜜月旅行储蓄，
-          礼金将成为我们开启新生活最实际的帮助。
-          欢迎通过 E-Transfer 转账。
+          我们即将组建我们的小家，礼金将成为我们开启新生活最实际的帮助。
+          若您愿意送上礼金祝福，可通过 e-Transfer 至：
         </p>
         <div class="etransfer-display">
           <span class="etransfer-label">E-Transfer</span>
@@ -1280,9 +1279,9 @@
         <span class="gift-icon">✈️</span>
         <h3>蜜月基金</h3>
         <p>
-          帮助我们在蜜月旅途中留下更多美好回忆——
-          一顿浪漫晚餐、一次日落巡游，
-          每一份心意都将化为旅途中的感动。
+          我们正在为蜜月旅行储蓄，您的每一份祝福都将化为旅途中的回忆和感动——
+          一顿浪漫晚餐、或是一次日落巡游。
+          若您愿意送上帮助支持，可通过 e-Transfer 至：
         </p>
         <div class="etransfer-display">
           <span class="etransfer-label">E-Transfer</span>
@@ -1305,7 +1304,7 @@
     </div>
 
     <div class="gift-note fade-in">
-      <span class="cross">✝</span>
+      <span class="cross">✝︎</span>
       <p>
         "你们要把一切的忧虑卸给上帝，因为祂顾念你们。"<br>
         <span style="font-size:.82rem; color:var(--muted);">— 彼得前书 5:7</span><br><br>
@@ -1321,7 +1320,7 @@
      FOOTER
 ════════════════════════════════ -->
 <footer>
-  <span class="footer-cross">✝</span>
+  <span class="footer-cross">✝︎</span>
   <!-- ★ 替换姓名与日期 ★ -->
   <p class="footer-names">刘博玺 &amp; 何晓雪</p>
   <p class="footer-date">2026年9月12日</p>
