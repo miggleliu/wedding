@@ -118,13 +118,10 @@
       position: fixed; top: 0; left: 0; right: 0; z-index: 900;
       display: flex; justify-content: space-between; align-items: center;
       padding: 22px 44px;
-      transition: padding 0.35s, background 0.35s, box-shadow 0.35s;
+      transition: padding 0.3s;
     }
     #navbar.scrolled {
-      background: rgba(253,251,248,0.96);
-      backdrop-filter: blur(12px);
       padding: 14px 44px;
-      box-shadow: 0 1px 18px rgba(0,0,0,0.07);
     }
 
     .nav-logo {
@@ -135,16 +132,12 @@
       color: #fff; text-decoration: none;
       transition: color 0.35s;
     }
-    #navbar.scrolled .nav-logo { color: var(--dark); }
-
     .nav-links { display: flex; gap: 28px; list-style: none; margin-left: 0; }
     .nav-links a {
       font-size: 0.75rem; letter-spacing: 0.12em;
       color: rgba(255,255,255,0.88); text-decoration: none;
-      transition: color 0.25s;
       font-family: 'Noto Sans SC', sans-serif;
     }
-    #navbar.scrolled .nav-links a { color: var(--muted); }
     .nav-links a:hover { color: var(--gold) !important; }
 
     #langBtn {
@@ -156,12 +149,10 @@
       flex-shrink: 0;
     }
     #langBtn:hover { background: rgba(255,255,255,.15); border-color: rgba(255,255,255,.8); }
-    #navbar.scrolled #langBtn { color: var(--muted); border-color: var(--border); }
     #navbar.scrolled #langBtn:hover { background: var(--gold); border-color: var(--gold); color: #fff; }
 
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: 0; }
     .hamburger span { display: block; width: 22px; height: 1.5px; background: #fff; transition: background 0.35s; }
-    #navbar.scrolled .hamburger span { background: var(--dark); }
 
     #mobileMenu {
       display: none; position: fixed; inset: 0; z-index: 950;
@@ -1367,13 +1358,59 @@
     const lang = localStorage.getItem('lang') || 'zh';
     const td = T[lang];
     btn.textContent = expanded ? td.galleryLess : td.galleryMore;
+    if (!expanded) {
+      document.getElementById('schedule').scrollIntoView({ behavior: 'smooth' });
+    }
   }
 
-  /* ── 导航栏滚动效果 ── */
+  /* ── 导航栏渐变效果（背景 + 文字颜色同步插值）── */
   const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 60);
-  });
+  function updateNavbar() {
+    const y = window.scrollY;
+    const p = Math.min(y / 90, 1);   // 0 → 90px 完成过渡
+
+    // ── 整体透明度（顶部完全不可见，随滚动淡入）──
+    navbar.style.opacity       = p.toFixed(3);
+    navbar.style.pointerEvents = p < 0.05 ? 'none' : 'auto';
+
+    // ── 背景 ──
+    navbar.style.background           = `rgba(253,251,248,${(p * 0.97).toFixed(3)})`;
+    navbar.style.backdropFilter       = p > 0.1 ? `blur(${(p * 12).toFixed(1)}px)` : '';
+    navbar.style.webkitBackdropFilter = navbar.style.backdropFilter;
+    navbar.style.boxShadow            = p > 0.2 ? `0 1px 18px rgba(0,0,0,${(p * 0.08).toFixed(3)})` : '';
+
+    // ── 颜色插值辅助 ──
+    // 从 white(255) 渐变到目标值
+    const li = (target, start = 255) => Math.round(start + (target - start) * p);
+
+    // Logo: white → #3d3530 (61,53,48)
+    const logo = navbar.querySelector('.nav-logo');
+    if (logo) logo.style.color = `rgb(${li(61)},${li(53)},${li(48)})`;
+
+    // Nav links: rgba(255,255,255,.88) → #7a6e66 (122,110,102)
+    const linkAlpha = (0.88 + 0.12 * p).toFixed(2);
+    navbar.querySelectorAll('.nav-links a').forEach(a => {
+      a.style.color = `rgba(${li(122)},${li(110)},${li(102)},${linkAlpha})`;
+    });
+
+    // Lang button text: rgba(255,255,255,.85) → muted
+    const lb = document.getElementById('langBtn');
+    if (lb) {
+      lb.style.color       = `rgba(${li(122)},${li(110)},${li(102)},${(0.85 + 0.15*p).toFixed(2)})`;
+      // border: rgba(255,255,255,.4) → #e8ddd0 (232,221,208)
+      lb.style.borderColor = `rgba(${li(232)},${li(221)},${li(208)},${(0.4 + 0.6*p).toFixed(2)})`;
+    }
+
+    // Hamburger spans: white → #3d3530
+    navbar.querySelectorAll('.hamburger span').forEach(s => {
+      s.style.background = `rgb(${li(61)},${li(53)},${li(48)})`;
+    });
+
+    // 保留 .scrolled 仅用于 padding 切换
+    navbar.classList.toggle('scrolled', y > 50);
+  }
+  window.addEventListener('scroll', updateNavbar, { passive: true });
+  updateNavbar();
 
   /* ── 移动菜单 ── */
   function openMenu()  {
