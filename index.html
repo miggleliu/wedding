@@ -147,6 +147,18 @@
     #navbar.scrolled .nav-links a { color: var(--muted); }
     .nav-links a:hover { color: var(--gold) !important; }
 
+    #langBtn {
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 0.68rem; letter-spacing: 0.12em;
+      color: rgba(255,255,255,.85); border: 1px solid rgba(255,255,255,.45);
+      background: transparent; cursor: pointer;
+      padding: 5px 12px; transition: all .25s;
+      flex-shrink: 0;
+    }
+    #langBtn:hover { background: rgba(255,255,255,.15); border-color: rgba(255,255,255,.8); }
+    #navbar.scrolled #langBtn { color: var(--muted); border-color: var(--border); }
+    #navbar.scrolled #langBtn:hover { background: var(--gold); border-color: var(--gold); color: #fff; }
+
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: 0; }
     .hamburger span { display: block; width: 22px; height: 1.5px; background: #fff; transition: background 0.35s; }
     #navbar.scrolled .hamburger span { background: var(--dark); }
@@ -725,6 +737,7 @@
     <li><a href="#schedule">婚礼流程</a></li>
     <li><a href="#gift">感恩馈赠</a></li>
   </ul>
+  <button id="langBtn" onclick="toggleLang()">EN</button>
   <button class="hamburger" type="button" onclick="openMenu()" aria-label="打开菜单" aria-controls="mobileMenu">
     <span></span><span></span><span></span>
   </button>
@@ -787,7 +800,7 @@
   </div>
 
   <div class="scroll-hint" aria-hidden="true">
-    <span>向下滚动</span>
+    <span id="scrollHintText">向下滚动</span>
     <div class="scroll-line"></div>
   </div>
 
@@ -1351,7 +1364,9 @@
     const grid = document.getElementById('galleryGrid');
     const btn  = document.getElementById('galleryMoreBtn');
     const expanded = grid.classList.toggle('show-all');
-    btn.textContent = expanded ? '收起照片' : '查看更多照片';
+    const lang = localStorage.getItem('lang') || 'zh';
+    const td = T[lang];
+    btn.textContent = expanded ? td.galleryLess : td.galleryMore;
   }
 
   /* ── 导航栏滚动效果 ── */
@@ -1455,6 +1470,223 @@
     if (e.key === 'ArrowLeft')  shiftLb(-1);
     if (e.key === 'ArrowRight') shiftLb(1);
   });
-</script>
-</body>
+
+  /* ── 语言切换 ── */
+  const T = {
+    zh: {
+      btn:'EN',
+      nav:['主页','我们的故事','美好时光','相册','婚礼流程','感恩馈赠'],
+      heroMeta:'2026年9月12日 &nbsp;·&nbsp; 周六',
+      heroEyebrow:'蒙主恩典 &nbsp;·&nbsp; 我们要结婚啦',
+      heroLocation:'汉密尔顿主恩国语宣道会',
+      heroVerse:'"我的良人属我，我也属他。"<cite>— 雅歌 2:16</cite>',
+      cdLabels:['天','小时','分钟','秒'],
+      rsvpBtns:'晚宴回复',
+      storyLabel:'相遇相知', storyTitle:'我们的故事',
+      storyP1:'从羽毛球场上的一次邂逅，到手写情书与玫瑰里的真诚告白；从彼此陪伴，到在主里同心同行，我们一步一步看见上帝奇妙的带领。',
+      storyP2:'感谢主让我们在相识、相爱与归向祂的路上彼此扶持。如今，我们盼望在亲友的见证下，以誓言与爱进入婚姻，一同建立愿意事奉耶和华的家。',
+      verseBlock:'"耶和华上帝说：\'那人独居不好，我要为他造一个配偶帮助他。\'"<cite>— 创世记 2:18</cite>',
+      tlH4:['初次相遇','表白','同心同行','求婚','订婚','在主里合而为一'],
+      tlP:['羽毛球场上的邂逅，没想到成了永远的球友，和微信置顶的好友。','手写情书一封，送上玫瑰一束，那句"我喜欢你"的双向奔赴。','她恒切祷告，他亦归向主，"二人若不同心，岂能同行呢？"【摩 3:3】','在亲友见证之下，他单膝跪地，"你愿意嫁给我吗？"','双方父母会晤成功，我们收到满满的爱与祝福。','我们将在众人面前，以誓言与爱，在上帝的见证下，正式结合。"至于我和我家，我们必定事奉耶和华。"【书 24:15】'],
+      verseBanner:'"爱是恒久忍耐，又有恩慈；爱是不嫉妒；爱是不自夸，不张狂，不做害羞的事，不求自己的益处，不轻易发怒，不计算人的恶，不喜欢不义，只喜欢真理；凡事包容，凡事相信，凡事盼望，凡事忍耐。爱是永不止息。"<cite>哥林多前书 13:4–8</cite>',
+      momentsLabel:'珍贵回忆', momentsTitle:'美好时光',
+      m01Title:'一起带领敬拜', m01Text:'我们一同站在台上，用歌声和琴声赞美上帝。曲终，我们献上祷告，却在睁眼的瞬间，不约而同地望向彼此——那一刻，心里有什么东西悄悄落定了。',
+      m02Title:'一起出行的旅途', m02Text:'一辆车、两个人、一路上数不清的笑声与祷告。我们学会了在旅途中彼此迁就、彼此等候，也在异乡的晨光里一起感谢主赐予的美好。',
+      m03Title:'求婚那一天', m03Text:'灯光、鲜花、气球、好友，这是专属你的天马行空。他单膝跪地，念出那些反复练习过的话，把钻戒缓缓戴进她的无名指。',
+      galleryLabel:'点滴时光', galleryTitle:'我们的相册',
+      scrollHint:'向下滚动',
+      galleryMore:'查看更多照片', galleryLess:'收起照片',
+      schedLabel:'婚礼当日', schedTitle:'婚礼流程',
+      schedDesc:'我们诚挚地邀请您与我们共同见证这蒙主恩典的美好时刻，以下是当天的详细安排。',
+      schedCol1:'证婚典礼与婚宴', schedCol2:'地点与出行',
+      schedH4:['来宾就座','敬拜赞美 <span class="sched-tag">✝︎</span>','证道 <span class="sched-tag">✝︎</span>','交换誓言与戒指 <span class="sched-tag">✝︎</span>','祷告祝福与宣布成婚 <span class="sched-tag">✝︎</span>','合影留念','证婚典礼结束','婚宴入座','互动小游戏','晚会结束','汉密尔顿主恩国语宣道会','Mandarin 餐厅','停车指引','着装建议','回复截止日期'],
+      schedFirstP:['欢迎来宾入场，请于 2:00 PM 前就座。','全体共同敬拜，以歌声将荣耀归于主，开启这神圣的典礼。','牧师分享主题信息，诠释婚姻在圣经中的真义与呼召。','新人在上帝与众人面前立下誓言，交换信物，合而为一。','牧师为新人祷告，宣告婚姻成立，全场见证。','新人与家人、来宾拍摄合影，留住这美好瞬间。','感谢大家一同见证这蒙主恩典的时刻，愿上帝祝福每一位亲友平安喜乐。','欢迎受邀来宾入席，请于 7:15 PM 前就座。','与亲友一同参与轻松有趣的互动环节，分享欢笑与祝福。','感谢您的陪伴，愿上帝一路保守您平安归家。','31 Summit Ave, Hamilton, ON, L8V 2R7','1508 Upper James St, Hamilton, ON, L9B 1K3','教堂提供免费停车场，附近亦可免费路边停车。','正式礼服或精致休闲装，以简洁优雅为宜，方便出席圣洁的礼拜典礼。','晚宴受邀嘉宾请于 <strong>2026年7月1日</strong> 前回复。'],
+      schedTimeLabels:['仪式','婚宴','停车','着装','回复'],
+      locLinks:['仪式地点地图 ↗','婚宴地点地图 ↗'],
+      schedLocText:['汉密尔顿主恩国语宣道会 — 主堂','汉密尔顿主恩国语宣道会 — 主堂','教堂前厅及户外区域','宴会厅'],
+      dinnerNoteH4:'晚宴温馨提示',
+      dinnerNoteP:'若您收到晚宴邀请，诚挚欢迎您于晚间移步宴会厅，与我们继续同庆；若您仅参加证婚典礼，您的见证与祝福对我们同样珍贵。',
+      rsvpTitle:'晚宴出席回复', rsvpText:'证婚典礼欢迎所有亲友，无需回复。<br>若您已收到晚宴邀请码，请于 2026年7月1日 前登入回复。',
+      giftLabel:'礼物与祝福', giftTitle:'感恩馈赠',
+      giftDesc:'您的莅临与祝福，是我们最珍贵的礼物。若您有心馈赠，以下方式可供参考，我们将感谢您对我们新生活的支持。留言可备注您的姓名，方便我们日后致谢。',
+      gift1Title:'礼金红包', gift1Text:'我们即将组建我们的小家，礼金将成为我们开启新生活最实际的帮助。若您愿意送上礼金祝福，可通过 e-Transfer 至：',
+      gift2Title:'蜜月基金', gift2Text:'我们正在为蜜月旅行储蓄，您的每一份祝福都将化为旅途中的回忆和感动——一顿浪漫晚餐、或是一次日落巡游。若您愿意送上帮助支持，可通过 e-Transfer 至：',
+      gift3Title:'您的心意', gift3Text:'也许是您在书架前驻足良久，终于取下那本一直想推荐给朋友的书；也许是一张礼品卡，附上几行悄悄话；也许只是某件让您忽然想到我们的小物件——我们在乎的，从来不是礼物本身，而是您为我们停下脚步的那一刻心意。',
+      giftNote:'"你们要把一切的忧虑卸给上帝，因为祂顾念你们。"<br><span style="font-size:.82rem;color:var(--muted);">— 彼得前书 5:7</span><br><br>感谢您的祝福与同行，愿上帝赐福给您及您的家人。',
+      footerDate:'2026年9月12日',
+      footerVerse:'"我们爱，因为上帝先爱我们。"<br><span style="font-size:.68rem;letter-spacing:.1em;">— 约翰一书 4:19</span>',
+      footerTag:'在主恩典中同心同行 &nbsp;·&nbsp; 感谢所有亲友的同在与祝福',
+    },
+    en: {
+      btn:'中',
+      nav:['Home','Our Story','Moments','Gallery','Schedule','Gifts'],
+      heroMeta:'September 12, 2026 &nbsp;·&nbsp; Saturday',
+      heroEyebrow:'By God\'s Grace &nbsp;·&nbsp; We\'re Getting Married',
+      heroLocation:'Hamilton Grace Mandarin Alliance Church',
+      heroVerse:'"My beloved is mine, and I am his."<cite>— Song of Solomon 2:16</cite>',
+      cdLabels:['Days','Hours','Minutes','Seconds'],
+      rsvpBtns:'Dinner RSVP',
+      storyLabel:'How It Began', storyTitle:'Our Story',
+      storyP1:'From a chance encounter on the badminton court, to a heartfelt confession with a handwritten letter and roses — through companionship and faith, we have witnessed God\'s wonderful guidance every step of the way.',
+      storyP2:'We are grateful that God brought us together — to grow in love, in faith, and in Him. Now, we look forward to entering marriage before our loved ones, building a home that chooses to serve the Lord.',
+      verseBlock:'"The Lord God said, \'It is not good that the man should be alone; I will make him a helper fit for him.\'"<cite>— Genesis 2:18</cite>',
+      tlH4:['First Meeting','Confession','Walking Together in Faith','The Proposal','Engagement','United in Christ'],
+      tlP:['A chance encounter on the badminton court — the beginning of everything.','A handwritten letter, a bouquet of roses, and feelings that went both ways.','She prayed faithfully; he turned to God too. "Can two walk together unless they agree?" — Amos 3:3','With friends as witnesses, he got down on one knee and asked, "Will you marry me?"','Our families met and celebrated, and we received an abundance of love and blessings.','We will stand before our loved ones, joined in vows and love, witnessed by God. "As for me and my household, we will serve the Lord." — Joshua 24:15'],
+      verseBanner:'"Love is patient, love is kind. It does not envy, it does not boast, it is not proud. It does not dishonor others, it is not self-seeking, it is not easily angered, it keeps no record of wrongs. Love does not delight in evil but rejoices with the truth. It always protects, always trusts, always hopes, always perseveres. Love never fails."<cite>1 Corinthians 13:4–8</cite>',
+      momentsLabel:'Cherished Memories', momentsTitle:'Beautiful Moments',
+      m01Title:'Leading Worship Together', m01Text:'We stood on stage together, praising God with voices and strings. When the song ended and we opened our eyes, we found ourselves looking at each other — something quietly settled in our hearts.',
+      m02Title:'Journeys Together', m02Text:'One car, two people, and endless laughter and prayers along the way. We learned patience and found grace in the morning light of places far from home.',
+      m03Title:'The Proposal', m03Text:'Lights, flowers, balloons, and friends — a world made just for her. He got down on one knee, spoke the words he had rehearsed so many times, and gently placed the ring on her finger.',
+      galleryLabel:'Through the Years', galleryTitle:'Our Gallery',
+      scrollHint:'Scroll',
+      galleryMore:'View More', galleryLess:'View Less',
+      schedLabel:'Wedding Day', schedTitle:'Schedule',
+      schedDesc:'We warmly invite you to witness this beautiful moment blessed by God\'s grace. Here is the schedule for the day.',
+      schedCol1:'Ceremony & Reception', schedCol2:'Venue & Travel',
+      schedH4:['Guest Arrival','Worship & Praise <span class="sched-tag">✝︎</span>','Sermon <span class="sched-tag">✝︎</span>','Exchange of Vows & Rings <span class="sched-tag">✝︎</span>','Prayer, Blessing & Pronouncement <span class="sched-tag">✝︎</span>','Group Photos','End of Ceremony','Dinner Reception','Interactive Games','End of Evening','Hamilton Grace Mandarin Alliance Church','Mandarin Restaurant','Parking','Dress Code','RSVP Deadline'],
+      schedFirstP:['Doors open. Please be seated by 2:00 PM.','Opening worship — giving glory to God through song to begin this sacred ceremony.','The pastor shares a message on the meaning and calling of Christian marriage.','The couple exchanges vows and rings before God and all who have gathered, becoming one.','The pastor prays over the couple, pronounces them married, and the assembly bears witness.','Group photos with family and guests to capture this beautiful moment.','Thank you for witnessing this moment of grace. May God bless each and every one of you.','Invited guests are welcome to dinner. Please be seated by 7:15 PM.','Join us for fun and laughter with family and friends.','Thank you for celebrating with us. Safe travels home!','31 Summit Ave, Hamilton, ON, L8V 2R7','1508 Upper James St, Hamilton, ON, L9B 1K3','Free parking is available at the church. Street parking is also available nearby.','Formal or smart casual attire. Elegant and comfortable for a sacred worship ceremony.','Dinner guests please respond by <strong>July 1, 2026</strong>.'],
+      schedTimeLabels:['Ceremony','Reception','Parking','Attire','RSVP'],
+      locLinks:['Ceremony Map ↗','Reception Map ↗'],
+      schedLocText:['Hamilton Grace Mandarin Alliance Church — Main Hall','Hamilton Grace Mandarin Alliance Church — Main Hall','Church Foyer & Outdoor Area','Banquet Hall'],
+      dinnerNoteH4:'Dinner Note',
+      dinnerNoteP:'If you have received a dinner invitation, you are warmly welcome to join us at the reception. If you are only attending the ceremony, your witness and blessings mean just as much to us.',
+      rsvpTitle:'Dinner RSVP', rsvpText:'Everyone is welcome to attend the ceremony — no RSVP required.<br>If you received a dinner invitation code, please log in and respond by July 1, 2026.',
+      giftLabel:'Gifts & Blessings', giftTitle:'With Gratitude',
+      giftDesc:'Your presence and blessings are the greatest gifts we could receive. If you wish to give, the options below are available — we are grateful for your support as we begin our new life. Please include your name in the note so we can thank you personally.',
+      gift1Title:'Cash Gift', gift1Text:'We are building our first home together, and a cash gift is the most practical way to help us get started. If you would like to bless us, please send via e-Transfer to:',
+      gift2Title:'Honeymoon Fund', gift2Text:'We are saving for our honeymoon, and your contribution will become a cherished memory — a romantic dinner or a sunset cruise. If you would like to help, please send via e-Transfer to:',
+      gift3Title:'A Gift from the Heart', gift3Text:'Perhaps you will pause at a bookshelf and pick out just the right book; perhaps a gift card with a little note tucked inside; or something small that simply reminded you of us — what matters is not the gift itself, but the thoughtfulness behind it.',
+      giftNote:'"Cast all your anxiety on him because he cares for you."<br><span style="font-size:.82rem;color:var(--muted);">— 1 Peter 5:7</span><br><br>Thank you for your blessings and company. May God bless you and your family.',
+      footerDate:'September 12, 2026',
+      footerVerse:'"We love because he first loved us."<br><span style="font-size:.68rem;letter-spacing:.1em;">— 1 John 4:19</span>',
+      footerTag:'Walking together in God\'s grace &nbsp;·&nbsp; Thank you for being with us',
+    }
+  };
+
+  function set(sel, html) {
+    const el = document.querySelector(sel);
+    if (el) el.innerHTML = html;
+  }
+
+  function applyLang(lang) {
+    const d = T[lang];
+    document.getElementById('langBtn').textContent = d.btn;
+
+    // Nav
+    document.querySelectorAll('.nav-links a').forEach((a,i) => { if (d.nav[i]) a.textContent = d.nav[i]; });
+    document.querySelectorAll('.mobile-menu-links a').forEach((a,i) => { if (d.nav[i]) a.textContent = d.nav[i]; });
+
+    // Scroll hint
+    const sh = document.getElementById('scrollHintText');
+    if (sh) sh.textContent = d.scrollHint;
+
+    // Hero
+    set('.hero-meta', d.heroMeta);
+    set('.hero-eyebrow', d.heroEyebrow);
+    set('.hero-location', d.heroLocation);
+    set('.hero-verse', d.heroVerse);
+    document.querySelectorAll('.cd-label').forEach((el,i) => { if (d.cdLabels[i]) el.textContent = d.cdLabels[i]; });
+    document.querySelectorAll('a[href="rsvp.html"]').forEach(el => { el.textContent = d.rsvpBtns; });
+
+    // Story
+    set('#story .section-label', d.storyLabel);
+    set('#story .section-title', d.storyTitle);
+    const sps = document.querySelectorAll('#story .story-copy > p');
+    if (sps[0]) sps[0].innerHTML = d.storyP1;
+    if (sps[1]) sps[1].innerHTML = d.storyP2;
+    const vbp = document.querySelector('#story .verse-block p');
+    const vbc = document.querySelector('#story .verse-block cite');
+    if (vbp && vbc) {
+      const parts = d.verseBlock.split('<cite>');
+      vbp.innerHTML = parts[0];
+      vbc.innerHTML = parts[1].replace('</cite>','');
+    }
+    document.querySelectorAll('.tl-body h4').forEach((el,i) => { if (d.tlH4[i]) el.textContent = d.tlH4[i]; });
+    document.querySelectorAll('.tl-body p').forEach((el,i) => { if (d.tlP[i]) el.innerHTML = d.tlP[i]; });
+
+    // Verse banner
+    const vb = document.querySelector('.verse-banner blockquote');
+    if (vb) vb.innerHTML = d.verseBanner;
+
+    // Moments
+    set('#moments .section-label', d.momentsLabel);
+    set('#moments .section-title', d.momentsTitle);
+    const mh = document.querySelectorAll('.moment-copy h3');
+    const mp = document.querySelectorAll('.moment-copy p');
+    if (mh[0]) mh[0].textContent = d.m01Title; if (mp[0]) mp[0].innerHTML = d.m01Text;
+    if (mh[1]) mh[1].textContent = d.m02Title; if (mp[1]) mp[1].innerHTML = d.m02Text;
+    if (mh[2]) mh[2].textContent = d.m03Title; if (mp[2]) mp[2].innerHTML = d.m03Text;
+
+    // Gallery
+    set('#gallery .section-label', d.galleryLabel);
+    set('#gallery .section-title', d.galleryTitle);
+    const gb = document.getElementById('galleryMoreBtn');
+    if (gb) {
+      const showing = document.getElementById('galleryGrid').classList.contains('show-all');
+      gb.textContent = showing ? d.galleryLess : d.galleryMore;
+    }
+
+    // Schedule items
+    set('#schedule .section-label', d.schedLabel);
+    set('#schedule .section-title', d.schedTitle);
+    set('#schedule .schedule-header p', d.schedDesc);
+    const cols = document.querySelectorAll('.schedule-col h3');
+    if (cols[0]) cols[0].textContent = d.schedCol1;
+    if (cols[1]) cols[1].textContent = d.schedCol2;
+    document.querySelectorAll('.sched-info h4').forEach((el,i) => { if (d.schedH4[i]) el.innerHTML = d.schedH4[i]; });
+    document.querySelectorAll('.sched-info').forEach((info,i) => {
+      const p = info.querySelector('p:not(.loc)');
+      if (p && d.schedFirstP[i]) p.innerHTML = d.schedFirstP[i];
+    });
+    document.querySelectorAll('.sched-time[style*="color:var"]').forEach((el,i) => {
+      if (d.schedTimeLabels[i]) el.textContent = d.schedTimeLabels[i];
+    });
+    document.querySelectorAll('.sched-info .loc a').forEach((a,i) => {
+      if (d.locLinks[i]) a.textContent = d.locLinks[i];
+    });
+    const plainLocs = Array.from(document.querySelectorAll('.sched-info .loc')).filter(el => !el.querySelector('a'));
+    plainLocs.forEach((el,i) => { if (d.schedLocText[i]) el.textContent = d.schedLocText[i]; });
+    const din = document.querySelector('.dinner-invite-note');
+    if (din) {
+      const dh = din.querySelector('h4'); if (dh) dh.textContent = d.dinnerNoteH4;
+      const dp = din.querySelector('p');  if (dp) dp.innerHTML = d.dinnerNoteP;
+    }
+
+    // RSVP banner
+    set('.rsvp-banner h3', d.rsvpTitle);
+    set('.rsvp-banner p', d.rsvpText);
+    const rb = document.querySelector('.rsvp-banner .btn');
+    if (rb) rb.textContent = d.rsvpBtns;
+
+    // Gift
+    set('#gift .section-label', d.giftLabel);
+    set('#gift .section-title', d.giftTitle);
+    set('.gift-header p', d.giftDesc);
+    const gh = document.querySelectorAll('.gift-card h3');
+    const gp = document.querySelectorAll('.gift-card p');
+    if (gh[0]) gh[0].textContent = d.gift1Title; if (gp[0]) gp[0].innerHTML = d.gift1Text;
+    if (gh[1]) gh[1].textContent = d.gift2Title; if (gp[1]) gp[1].innerHTML = d.gift2Text;
+    if (gh[2]) gh[2].textContent = d.gift3Title; if (gp[2]) gp[2].innerHTML = d.gift3Text;
+    set('.gift-note p', d.giftNote);
+
+    // Footer
+    set('.footer-date', d.footerDate);
+    set('.footer-verse', d.footerVerse);
+    const ftag = document.querySelector('footer > p:last-child');
+    if (ftag) ftag.innerHTML = d.footerTag;
+
+    if (typeof _userToggled !== 'undefined') localStorage.setItem('lang', lang);
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  }
+
+  let _userToggled;
+  let currentLang = localStorage.getItem('lang') || 'zh';
+  function toggleLang() {
+    _userToggled = true;
+    currentLang = currentLang === 'zh' ? 'en' : 'zh';
+    applyLang(currentLang);
+  }
+  applyLang(currentLang);
+  window.addEventListener("pageshow", e => { if (e.persisted) applyLang(localStorage.getItem("lang") || "zh"); });
+</script></body>
 </html>

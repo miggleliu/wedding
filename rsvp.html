@@ -270,6 +270,16 @@
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
     }
+
+    /* lang btn */
+    #rsvpLangBtn {
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 0.66rem; letter-spacing: 0.12em;
+      color: rgba(255,255,255,.8); border: 1px solid rgba(255,255,255,.4);
+      background: transparent; cursor: pointer; padding: 4px 11px;
+      transition: all .25s; flex-shrink: 0;
+    }
+    #rsvpLangBtn:hover { background: rgba(255,255,255,.15); border-color: rgba(255,255,255,.75); }
   </style>
 </head>
 <body>
@@ -277,7 +287,10 @@
 
 <nav>
   <a href="index.html" class="nav-logo">刘博玺 <span>&amp;</span> 何晓雪</a>
-  <a href="index.html" class="nav-back">← 返回婚礼主页</a>
+  <div style="display:flex;align-items:center;gap:14px;">
+    <button id="rsvpLangBtn" onclick="toggleRsvpLang()">EN</button>
+    <a href="index.html" class="nav-back" id="rsvpNavBack">← 返回婚礼主页</a>
+  </div>
 </nav>
 
 <div class="page-header">
@@ -288,13 +301,13 @@
     <div class="rule"></div>
     <span class="lantern">🏮</span>
   </div>
-  <h1>晚宴出席回复</h1>
-  <p>
+  <h1 id="rsvpH1">晚宴出席回复</h1>
+  <p id="rsvpHeaderDesc">
     <strong>证婚典礼欢迎所有亲友莅临，无需回复。</strong><br>
     若您已收到晚宴邀请码，请在下方登入填写出席信息，<br>
     请于 <strong>2026年7月1日</strong> 前完成回复。
   </p>
-  <button class="btn-scroll-down" onclick="document.getElementById('loginAnchor').scrollIntoView({behavior:'smooth'})">
+  <button class="btn-scroll-down" id="rsvpScrollBtn" onclick="document.getElementById('loginAnchor').scrollIntoView({behavior:'smooth'})">
     前往填写回复 ↓
   </button>
 </div>
@@ -324,10 +337,10 @@
   <div class="login-panel">
     <div class="panel-header">
       <span class="panel-icon">🏮</span>
-      <h2>晚宴受邀嘉宾登入</h2>
+      <h2 id="rsvpPanelH2">晚宴受邀嘉宾登入</h2>
     </div>
     <div class="panel-divider"></div>
-    <p class="panel-desc">请输入您收到的用户名与密码，验证后即可填写出席信息。</p>
+    <p class="panel-desc" id="rsvpPanelDesc">请输入您收到的用户名与密码，验证后即可填写出席信息。</p>
 
     <div class="msg msg-error" id="msgError">用户名或密码错误，请检查后重试。如有疑问请联系新人。</div>
     <div class="msg msg-success" id="msgSuccess">
@@ -360,7 +373,7 @@
 
 <footer>
   <span class="footer-names">刘博玺 &amp; 何晓雪</span>
-  <p class="footer-verse">"我们爱，因为上帝先爱我们。" — 约翰一书 4:19</p>
+  <p class="footer-verse" id="rsvpFooterVerse">"我们爱，因为上帝先爱我们。" — 约翰一书 4:19</p>
   <p><a href="index.html">← 返回婚礼主页</a></p>
 </footer>
 
@@ -467,6 +480,128 @@
   document.addEventListener('keydown', e => {
     if (e.key === 'Enter') doLogin();
   });
+
+  /* ── rsvp 语言切换 ── */
+  const RT = {
+    zh: {
+      btn:'EN',
+      navBack:'← 返回婚礼主页',
+      h1:'晚宴出席回复',
+      scrollBtn:'前往填写回复 ↓',
+      headerDesc:'<strong>证婚典礼欢迎所有亲友莅临，无需回复。</strong><br>若您已收到晚宴邀请码，请在下方登入填写出席信息，<br>请于 <strong>2026年7月1日</strong> 前完成回复。',
+      ceremLabel:'证婚典礼 · 欢迎所有亲友',
+      ceremTitle:'2026年9月12日（周六）下午 2:00',
+      ceremDetail:'汉密尔顿主恩国语宣道会<br>31 Summit Ave, Hamilton, ON · 无需回复',
+      dinnerLabel:'🏮 婚宴 · 受邀嘉宾',
+      dinnerTitle:'2026年9月12日（周六）晚上 7:00',
+      dinnerDetail:'Mandarin 餐厅（自助晚宴）<br>1508 Upper James St, Hamilton, ON',
+      noticeText:'由于晚宴座位有限，每份邀请码对应一位晚宴名额，感谢您的理解与体谅。若您的同行来宾也受邀出席晚宴，他们将另行收到属于自己的专属邀请码。',
+      panelH2:'晚宴受邀嘉宾登入',
+      panelDesc:'请输入您收到的用户名与密码，验证后即可填写出席信息。',
+      userLabel:'用户名', userPlaceholder:'例：G001',
+      passLabel:'密码', passPlaceholder:'请输入密码',
+      msgError:'用户名或密码错误，请检查后重试。如有疑问请联系新人。',
+      msgSuccess:'验证成功！请点击下方按钮填写出席回复。',
+      formLinkText:'填写出席表单 →',
+      loginBtn:'登　入',
+      googleNote:'📋 验证通过后将跳转至 Google 表单，<br>请确保您已登录 Google 账号以便提交回复。',
+      footerVerse:'"我们爱，因为上帝先爱我们。" — 约翰一书 4:19',
+      footerBack:'← 返回婚礼主页',
+    },
+    en: {
+      btn:'中',
+      navBack:'← Back to Wedding',
+      h1:'Dinner RSVP',
+      scrollBtn:'Proceed to Login ↓',
+      headerDesc:'<strong>Everyone is welcome to attend the ceremony — no RSVP required.</strong><br>If you have received a dinner invitation code, please log in below to complete your RSVP<br>by <strong>July 1, 2026</strong>.',
+      ceremLabel:'Ceremony · All Welcome',
+      ceremTitle:'September 12, 2026 (Saturday) 2:00 PM',
+      ceremDetail:'Hamilton Grace Mandarin Alliance Church<br>31 Summit Ave, Hamilton, ON · No RSVP Required',
+      dinnerLabel:'🏮 Dinner · Invited Guests',
+      dinnerTitle:'September 12, 2026 (Saturday) 7:00 PM',
+      dinnerDetail:'Mandarin Restaurant (Buffet)<br>1508 Upper James St, Hamilton, ON',
+      noticeText:'As dinner seats are limited, each invitation code corresponds to one dinner spot. We appreciate your understanding. If your companions are also invited to the dinner, they will receive their own separate invitation codes.',
+      panelH2:'Dinner Guest Login',
+      panelDesc:'Enter the username and password from your invitation to access the RSVP form.',
+      userLabel:'Username', userPlaceholder:'e.g. G001',
+      passLabel:'Password', passPlaceholder:'Enter password',
+      msgError:'Incorrect username or password. Please try again or contact us.',
+      msgSuccess:'Verified! Please click the button below to complete your RSVP.',
+      formLinkText:'Fill Out Attendance Form →',
+      loginBtn:'Sign In',
+      googleNote:'📋 You will be redirected to a Google Form after verification.<br>Please ensure you are logged in to your Google account.',
+      footerVerse:'"We love because he first loved us." — 1 John 4:19',
+      footerBack:'← Back to Wedding',
+    }
+  };
+
+  function applyRsvpLang(lang) {
+    const d = RT[lang];
+    const s = (id, html) => { const el = document.getElementById(id); if (el) el.innerHTML = html; };
+    const q = (sel, html) => { const el = document.querySelector(sel); if (el) el.innerHTML = html; };
+
+    document.getElementById('rsvpLangBtn').textContent = d.btn;
+    s('rsvpNavBack', d.navBack);
+    s('rsvpH1', d.h1);
+    s('rsvpHeaderDesc', d.headerDesc);
+    s('rsvpScrollBtn', d.scrollBtn);
+
+    // Event strip
+    const evLabels = document.querySelectorAll('.ev-label');
+    const evTitles = document.querySelectorAll('.ev-title');
+    const evDetails = document.querySelectorAll('.ev-detail');
+    if (evLabels[0]) evLabels[0].innerHTML = d.ceremLabel;
+    if (evTitles[0]) evTitles[0].innerHTML = d.ceremTitle;
+    if (evDetails[0]) evDetails[0].innerHTML = d.ceremDetail;
+    if (evLabels[1]) evLabels[1].innerHTML = d.dinnerLabel;
+    if (evTitles[1]) evTitles[1].innerHTML = d.dinnerTitle;
+    if (evDetails[1]) evDetails[1].innerHTML = d.dinnerDetail;
+
+    // Warm notice
+    q('#loginAnchor p', d.noticeText);
+
+    // Login panel
+    s('rsvpPanelH2', d.panelH2);
+    s('rsvpPanelDesc', d.panelDesc);
+    q('label[for="username"]', d.userLabel);
+    q('label[for="password"]', d.passLabel);
+    const uInput = document.getElementById('username');
+    const pInput = document.getElementById('password');
+    if (uInput) uInput.placeholder = d.userPlaceholder;
+    if (pInput) pInput.placeholder = d.passPlaceholder;
+    q('#msgError', d.msgError);
+
+    // Success message (only update text node, not the link)
+    const succ = document.getElementById('msgSuccess');
+    if (succ) {
+      const link = succ.querySelector('a');
+      succ.innerHTML = d.msgSuccess;
+      if (link) { succ.appendChild(document.createElement('br')); succ.appendChild(link); link.textContent = d.formLinkText; }
+    }
+
+    const lb = document.getElementById('loginBtn');
+    if (lb && !lb.disabled) lb.textContent = d.loginBtn;
+
+    // Google note
+    const gNote = document.querySelector('.login-panel > p[style]');
+    if (gNote) gNote.innerHTML = d.googleNote;
+
+    // Footer
+    s('rsvpFooterVerse', d.footerVerse);
+    q('footer > p:last-child > a', d.footerBack);
+
+    if (typeof _rsvpUserToggled !== 'undefined') localStorage.setItem('lang', lang);
+  }
+
+  let _rsvpUserToggled;
+  let rsvpLang = localStorage.getItem('lang') || 'zh';
+  function toggleRsvpLang() {
+    _rsvpUserToggled = true;
+    rsvpLang = rsvpLang === 'zh' ? 'en' : 'zh';
+    applyRsvpLang(rsvpLang);
+  }
+  applyRsvpLang(rsvpLang);
+  window.addEventListener("pageshow", e => { if (e.persisted) applyRsvpLang(localStorage.getItem("lang") || "zh"); });
 </script>
 </body>
 </html>
