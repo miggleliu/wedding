@@ -208,14 +208,14 @@
     .hero-content { position: relative; z-index: 2; color: #fff; padding: 20px; }
 
     .hero-eyebrow {
-      font-size: 0.7rem; letter-spacing: 0.38em;
-      opacity: .82; margin-bottom: 22px;
+      font-size: 0.82rem; letter-spacing: 0.38em;
+      opacity: .82; margin-bottom: 26px;
       font-family: 'Noto Sans SC', sans-serif;
     }
 
     .hero-names {
       font-family: 'ZCOOL XiaoWei', 'Noto Serif SC', 'Songti SC', serif;
-      font-size: clamp(3.8rem, 9vw, 6.6rem);
+      font-size: clamp(4.4rem, 11vw, 8rem);
       font-weight: 400;
       line-height: 1.08;
       letter-spacing: 0.08em;
@@ -232,22 +232,22 @@
       letter-spacing: 0;
     }
 
-    .hero-meta { font-size: 0.72rem; letter-spacing: 0.32em; opacity: .88; margin-bottom: 10px; }
+    .hero-meta { font-size: 0.84rem; letter-spacing: 0.32em; opacity: .88; margin-bottom: 12px; }
     .hero-location {
       font-family: 'Noto Sans SC', sans-serif;
-      font-size: 0.72rem;
+      font-size: 0.84rem;
       letter-spacing: 0.32em;
       opacity: .88;
-      margin-bottom: 22px;
+      margin-bottom: 28px;
     }
 
     /* Hero Bible verse */
     .hero-verse {
       font-family: 'Noto Serif SC', serif;
-      font-size: 0.85rem; font-style: italic;
-      opacity: .82; line-height: 1.8;
-      margin-bottom: 44px;
-      max-width: 480px; margin-left: auto; margin-right: auto;
+      font-size: 1rem; font-style: italic;
+      opacity: .82; line-height: 1.9;
+      margin-bottom: 52px;
+      max-width: 520px; margin-left: auto; margin-right: auto;
     }
     .hero-verse cite { font-size: 0.68rem; display: block; margin-top: 6px; opacity: .7; letter-spacing: 0.1em; }
 
@@ -255,10 +255,10 @@
     .cd-item { text-align: center; }
     .cd-num {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 2.8rem; font-weight: 300;
+      font-size: 3.4rem; font-weight: 300;
       line-height: 1; display: block;
     }
-    .cd-label { font-size: 0.58rem; letter-spacing: 0.18em; opacity: .7; display: block; margin-top: 6px; }
+    .cd-label { font-size: 0.68rem; letter-spacing: 0.18em; opacity: .7; display: block; margin-top: 8px; }
 
     .scroll-hint {
       position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%);
@@ -486,7 +486,7 @@
     /* ═══════════════════════════════
        § SCHEDULE
     ═══════════════════════════════ */
-    #schedule { background: var(--cream); padding: 110px 0 0; }
+    #schedule { background: var(--cream); padding: 100px 0 75px; }
 
     .schedule-header { text-align: center; margin-bottom: 70px; }
     .schedule-header .divider { margin: 22px auto; }
@@ -603,6 +603,24 @@
     .gift-header .divider { margin: 22px auto; }
     .gift-header p { font-size: .84rem; color: var(--muted); max-width: 560px; margin: 0 auto; line-height: 1.85; }
 
+    .sched-clean { max-width: 580px; margin: 0 auto 40px; }
+    .sched-clean-row {
+      display: grid; grid-template-columns: 1fr 1px 1fr;
+      gap: 0 32px; align-items: start; margin-bottom: 36px; text-align: center;
+    }
+    .sched-clean-sep { background: var(--border); align-self: stretch; margin: 8px 0; }
+    .sched-clean-block { padding: 8px 0; }
+    .sched-clean-time {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem; font-style: italic;
+      color: var(--gold); margin: 12px 0 10px; line-height: 1;
+    }
+    .sched-clean-venue { font-size: .82rem; color: var(--dark); font-weight: 400; margin-bottom: 5px; }
+    .sched-clean-addr  { font-size: .72rem; color: var(--muted); line-height: 1.75; }
+    @media (max-width: 480px) {
+      .sched-clean-row { grid-template-columns: 1fr; gap: 28px 0; }
+      .sched-clean-sep { width: 48px; height: 1px; margin: 0 auto; align-self: auto; }
+    }
     .gift-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; margin-bottom: 36px; }
     .gift-card {
       background: var(--cream); padding: 34px 28px;
@@ -629,6 +647,60 @@
     .gift-note p {
       font-family: 'Noto Serif SC', serif;
       font-size: 1.02rem; color: var(--dark); line-height: 1.8;
+    }
+
+    /* ═══════════════════════════════
+       § FAITH
+    ═══════════════════════════════ */
+    #faith {
+      background: var(--cream);
+      padding: 90px 0;
+      text-align: center;
+      position: relative;
+      border-bottom: 2px solid var(--border);
+    }
+    #faith::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      height: 3px;
+    }
+    .faith-cross { font-size: 1.1rem; color: var(--gold); display: block; margin-bottom: 20px; }
+    .faith-label { color: var(--gold); }
+    .faith-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      font-weight: 300; color: var(--dark);
+      margin-bottom: 36px; line-height: 1.4;
+    }
+    .faith-verses {
+      max-width: 680px; margin: 0 auto 48px;
+      display: flex; flex-direction: column; gap: 28px;
+    }
+    .faith-verse {
+      border-left: 2px solid var(--gold);
+      padding: 10px 22px; text-align: left;
+    }
+    .faith-verse p {
+      font-family: 'Noto Serif SC', serif;
+      font-size: .95rem; color: var(--dark);
+      line-height: 1.9; font-style: italic;
+    }
+    .faith-verse cite {
+      font-size: .7rem; color: var(--gold-dark);
+      letter-spacing: .12em; display: block; margin-top: 8px;
+      font-style: normal;
+    }
+    .faith-body {
+      max-width: 660px; margin: 0 auto;
+      display: flex; flex-direction: column; gap: 20px;
+    }
+    .faith-body p { font-size: .88rem; color: var(--muted); line-height: 2; }
+    .faith-body strong { color: var(--dark); font-weight: 400; }
+    .faith-divider {
+      width: 48px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 8px auto;
     }
 
     /* ═══════════════════════════════
@@ -702,7 +774,7 @@
       .gallery-item:nth-child(11) { grid-column: span 2; }
 
       .schedule-cols { grid-template-columns: 1fr; gap: 40px; }
-      .gift-cards { grid-template-columns: 1fr; }
+      .gift-cards { grid-template-columns: 1fr; }  /* stacks on mobile */
       
       .countdown { gap: 18px; }
     }
@@ -727,6 +799,7 @@
     <li><a href="#gallery">相册</a></li>
     <li><a href="#schedule">婚礼流程</a></li>
     <li><a href="#gift">感恩馈赠</a></li>
+    <li><a href="#faith">结语</a></li>
   </ul>
   <button id="langBtn" onclick="toggleLang()">EN</button>
   <button class="hamburger" type="button" onclick="openMenu()" aria-label="打开菜单" aria-controls="mobileMenu">
@@ -745,8 +818,8 @@
     <a href="#gallery"  onclick="closeMenu()">相册</a>
     <a href="#schedule" onclick="closeMenu()">婚礼流程</a>
     <a href="#gift"     onclick="closeMenu()">感恩馈赠</a>
+    <a href="#faith"    onclick="closeMenu()">结语</a>
   </div>
-  <a href="rsvp.html" target="_blank" rel="noopener" class="btn btn-filled mobile-rsvp" onclick="closeMenu()">晚宴回复</a>
 </div>
 
 
@@ -786,8 +859,6 @@
       <div class="cd-item"><span class="cd-num" id="cd-s">—</span><span class="cd-label">秒</span></div>
     </div>
 
-    <!-- ★ 将链接替换为你们的 Google 表单回复链接 ★ -->
-    <a href="rsvp.html" target="_blank" rel="noopener" class="btn btn-light">晚宴回复</a>
   </div>
 
   <div class="scroll-hint" aria-hidden="true">
@@ -1073,175 +1144,39 @@
       <span class="section-label">婚礼当日</span>
       <h2 class="section-title">婚礼流程</h2>
       <div class="divider divider-center"></div>
-      <p>证婚典礼欢迎所有亲友莅临，无需回复。以下是当天的详细安排。</p>
+      <p id="schedDate" style="font-family:'Noto Serif SC',serif; font-size:1.05rem; font-weight:300; color:var(--dark); letter-spacing:.08em; margin-top:4px;">
+        2026年9月12日 &nbsp;·&nbsp; 周六
+      </p>
     </div>
 
-    <div class="schedule-cols">
+    <div class="sched-clean fade-in">
+      <div class="sched-clean-row">
 
-      <!-- 证婚典礼与婚宴 -->
-      <div class="schedule-col fade-in">
-        <h3>证婚典礼与婚宴</h3>
-
-        <div class="sched-item">
-          <div class="sched-time">1:30 PM</div>
-          <div class="sched-info">
-            <h4>来宾就座</h4>
-            <p>欢迎来宾入场，请于 2:00 PM 前就座。</p>
-            <p class="loc">汉密尔顿主恩国语宣道会 — 主堂</p>
-          </div>
+        <div class="sched-clean-block">
+          <span class="section-label">证婚典礼 ✝︎</span>
+          <p class="sched-clean-time">2:00 PM</p>
+          <p class="sched-clean-venue">海明顿主恩国语宣道会</p>
+          <p class="sched-clean-addr">31 Summit Ave<br>Hamilton, ON L8V 2R7</p>
         </div>
 
-        <div class="sched-item">
-          <div class="sched-time">2:00 PM</div>
-          <div class="sched-info">
-            <h4>敬拜赞美 <span class="sched-tag">✝︎</span></h4>
-            <p>全体共同敬拜，以歌声将荣耀归于主，开启这神圣的典礼。</p>
-            <p class="loc">汉密尔顿主恩国语宣道会 — 主堂</p>
-          </div>
+        <div class="sched-clean-sep"></div>
+
+        <div class="sched-clean-block">
+          <span class="section-label">婚宴</span>
+          <p class="sched-clean-time">7:00 PM</p>
+          <p class="sched-clean-venue">Mandarin 餐厅</p>
+          <p class="sched-clean-addr">1508 Upper James St<br>Hamilton, ON L9B 1K3</p>
         </div>
 
-        <div class="sched-item">
-          <div class="sched-time">2:20 PM</div>
-          <div class="sched-info">
-            <h4>证道 <span class="sched-tag">✝︎</span></h4>
-            <p>牧师分享主题信息，诠释婚姻在圣经中的真义与呼召。</p>
-          </div>
-        </div>
-
-        <div class="sched-item">
-          <div class="sched-time">2:50 PM</div>
-          <div class="sched-info">
-            <h4>交换誓言与戒指 <span class="sched-tag">✝︎</span></h4>
-            <p>新人在上帝与众人面前立下誓言，交换信物，合而为一。</p>
-          </div>
-        </div>
-
-        <div class="sched-item">
-          <div class="sched-time">3:10 PM</div>
-          <div class="sched-info">
-            <h4>祷告祝福与宣布成婚 <span class="sched-tag">✝︎</span></h4>
-            <p>牧师为新人祷告，宣告婚姻成立，全场见证。</p>
-          </div>
-        </div>
-
-        <div class="sched-item">
-          <div class="sched-time">3:30 PM</div>
-          <div class="sched-info">
-            <h4>合影留念</h4>
-            <p>新人与家人、来宾拍摄合影，留住这美好瞬间。</p>
-            <p class="loc">教堂前厅及户外区域</p>
-          </div>
-        </div>
-
-        <div class="sched-item">
-          <div class="sched-time">4:00 PM</div>
-          <div class="sched-info">
-            <h4>证婚典礼结束</h4>
-            <p>感谢大家一同见证这蒙主恩典的时刻，愿上帝祝福每一位亲友平安喜乐。</p>
-          </div>
-        </div>
-
-        <div class="dinner-invite-note">
-          <h4>晚宴温馨提示</h4>
-          <p>若您收到晚宴邀请，诚挚欢迎您于晚间移步宴会厅，与我们继续同庆；若您仅参加证婚典礼，您的见证与祝福对我们同样珍贵。</p>
-        </div>
-
-        <div class="sched-item">
-          <div class="sched-time">7:00 PM</div>
-          <div class="sched-info">
-            <h4>婚宴入座</h4>
-            <p>欢迎受邀来宾入席，请于 7:15 PM 前就座。</p>
-            <p class="loc">宴会厅</p>
-          </div>
-        </div>
-
-        <div class="sched-item">
-          <div class="sched-time">8:30 PM</div>
-          <div class="sched-info">
-            <h4>互动小游戏</h4>
-            <p>与亲友一同参与轻松有趣的互动环节，分享欢笑与祝福。</p>
-          </div>
-        </div>
-
-        <div class="sched-item">
-          <div class="sched-time">10:00 PM</div>
-          <div class="sched-info">
-            <h4>晚会结束</h4>
-            <p>感谢您的陪伴，愿上帝一路保守您平安归家。</p>
-          </div>
-        </div>
       </div>
 
-      <!-- 地点与出行 -->
-      <div class="schedule-col fade-in" style="transition-delay:.2s">
-        <h3>地点与出行</h3>
-
-        <div class="sched-item">
-          <div class="sched-time" style="color:var(--muted);font-size:.62rem;font-weight:400;">仪式</div>
-          <div class="sched-info">
-            <h4>汉密尔顿主恩国语宣道会</h4>
-            <p>31 Summit Ave, Hamilton, ON, L8V 2R7</p>
-            <p class="loc">
-              <a href="https://www.google.com/maps/search/?api=1&query=31%20Summit%20Ave%2C%20Hamilton%2C%20ON%2C%20L8V%202R7" target="_blank" rel="noopener">仪式地点地图 ↗</a>
-            </p>
-          </div>
-        </div>
-
-        <div class="sched-item">
-          <div class="sched-time" style="color:var(--muted);font-size:.62rem;font-weight:400;">婚宴</div>
-          <div class="sched-info">
-            <h4>Mandarin 餐厅</h4>
-            <p>1508 Upper James St, Hamilton, ON, L9B 1K3</p>
-            <p class="loc">
-              <a href="https://www.google.com/maps/search/?api=1&query=1508%20Upper%20James%20St%2C%20Hamilton%2C%20ON%2C%20L9B%201K3" target="_blank" rel="noopener">婚宴地点地图 ↗</a>
-            </p>
-          </div>
-        </div>
-
-        <div class="sched-item">
-          <div class="sched-time" style="color:var(--muted);font-size:.62rem;font-weight:400;">停车</div>
-          <div class="sched-info">
-            <h4>停车指引</h4>
-            <p>教堂提供免费停车场，附近亦可免费路边停车。</p>
-          </div>
-        </div>
-
-        <div class="sched-item">
-          <div class="sched-time" style="color:var(--muted);font-size:.62rem;font-weight:400;">着装</div>
-          <div class="sched-info">
-            <h4>着装建议</h4>
-            <p>正式礼服或精致休闲装，以简洁优雅为宜，方便出席圣洁的礼拜典礼。</p>
-          </div>
-        </div>
-
-        <div class="sched-item">
-          <div class="sched-time" style="color:var(--muted);font-size:.62rem;font-weight:400;">回复</div>
-          <div class="sched-info">
-            <h4>回复截止日期</h4>
-            <p>晚宴受邀嘉宾请于 <strong>2026年7月1日</strong> 前回复。</p>
-          </div>
-        </div>
+      <div class="dinner-invite-note">
+        <h4>晚宴温馨提示</h4>
+        <p>若您收到晚宴邀请，诚挚欢迎您于晚间移步宴会厅，与我们继续同庆；若您仅参加证婚典礼，您的见证与祝福对我们同样珍贵。</p>
       </div>
+    </div><!-- /.sched-clean -->
 
-    </div><!-- /.schedule-cols -->
   </div><!-- /.container -->
-
-  <!-- RSVP 横幅 -->
-  <div class="rsvp-banner fade-in">
-    <div class="rsvp-ornament">
-      <span class="lan">🏮</span>
-      <div class="rule"></div>
-      <span class="xi">囍</span>
-      <div class="rule"></div>
-      <span class="lan">🏮</span>
-    </div>
-    <h3>晚宴出席回复</h3>
-    <p>
-      证婚典礼欢迎所有亲友，无需回复。<br>
-      若您已收到晚宴邀请码，请于 2026年7月1日 前登入回复。
-    </p>
-    <a href="rsvp.html" target="_blank" rel="noopener" class="btn btn-light">晚宴回复</a>
-  </div>
 
 </section>
 
@@ -1258,50 +1193,41 @@
       <div class="divider divider-center"></div>
       <p>
         您的莅临与祝福，是我们最珍贵的礼物。
-        若您有心馈赠，以下方式可供参考，我们将感谢您对我们新生活的支持。
-        留言可备注您的姓名，方便我们日后致谢。
+        若您有心馈赠，礼金与礼品将在婚礼现场以礼品箱的形式收取，感谢您对我们新生活的支持。
       </p>
     </div>
 
     <div class="gift-cards">
 
       <div class="gift-card fade-in">
-        <span class="gift-icon">🧧</span>
-        <h3>礼金红包</h3>
+        <span class="gift-icon">🏠</span>
+        <h3>组建小家</h3>
         <p>
-          我们即将组建我们的小家，礼金将成为我们开启新生活最实际的帮助。
-          若您愿意送上礼金祝福，可通过 e-Transfer 至：
+          我们即将开始建立属于自己的小家。
+          如果您愿意用红包、礼品卡，或任何能为新生活带来帮助的方式支持我们，我们都会由衷感激。
+          这些心意，都会一点一点成为我们未来生活里的温暖与陪伴。
         </p>
-        <div class="etransfer-display">
-          <span class="etransfer-label">E-Transfer</span>
-          <!-- 邮箱由 JS 运行时组装，防止爬虫 -->
-          <span class="etransfer-btn etransfer-email">···</span>
-        </div>
       </div>
 
       <div class="gift-card fade-in" style="transition-delay:.14s">
         <span class="gift-icon">✈️</span>
         <h3>蜜月基金</h3>
         <p>
-          我们正在为蜜月旅行储蓄，您的每一份祝福都将化为旅途中的回忆和感动——
-          一顿浪漫晚餐、或是一次日落巡游。
-          若您愿意送上帮助支持，可通过 e-Transfer 至：
+          我们正在为回国蜜月旅行慢慢规划与储蓄。
+          如果您愿意为这段旅程添上一份心意，我们都会十分感激，
+          并会带着这份温暖，去看更多风景、留下更多回忆。
         </p>
-        <div class="etransfer-display">
-          <span class="etransfer-label">E-Transfer</span>
-          <span class="etransfer-btn etransfer-email">···</span>
-        </div>
       </div>
 
       <div class="gift-card fade-in" style="transition-delay:.28s">
         <span class="gift-icon">💝</span>
         <h3>您的心意</h3>
         <p>
-          也许是您在书架前驻足良久，终于取下那本一直想推荐给朋友的书；
-          也许是一张礼品卡，附上几行悄悄话；
-          也许只是某件让您忽然想到我们的小物件——
-          我们在乎的，从来不是礼物本身，
-          而是您为我们停下脚步的那一刻心意。
+          也许是一本您一直想分享给朋友的书；<br>
+          也许是一封卡片，写下几句想对我们说的话；<br>
+          也许是一份带着故事与祝福的小小心意。<br><br>
+          我们珍惜的，从来不只是礼物本身，<br>
+          而是您曾认真想起我们、为我们停下脚步的那份温柔。
         </p>
       </div>
 
@@ -1313,6 +1239,50 @@
         "你们要把一切的忧虑卸给上帝，因为祂顾念你们。"<br>
         <span style="font-size:.82rem; color:var(--muted);">— 彼得前书 5:7</span><br><br>
         感谢您的祝福与同行，愿上帝赐福给您及您的家人。
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════
+     § 信仰 · FAITH
+════════════════════════════════ -->
+<section id="faith">
+  <div class="container">
+
+    <span class="faith-cross">✝︎</span>
+    <span class="section-label faith-label" id="faithLabel">认识这份爱</span>
+    <h2 class="faith-title" id="faithTitle">因为爱，所以相信</h2>
+
+    <div class="faith-verses">
+      <div class="faith-verse">
+        <p id="faithVerse1">「凡劳苦担重担的人，可以到我这里来，我就使你们得安息。」</p>
+        <cite id="faithCite1">— 马太福音 11:28</cite>
+      </div>
+      <div class="faith-verse">
+        <p id="faithVerse2">「神爱世人，甚至将他的独生子赐给他们，叫一切信他的，不至灭亡，反得永生。」</p>
+        <cite id="faithCite2">— 约翰福音 3:16</cite>
+      </div>
+      <div class="faith-verse">
+        <p id="faithVerse3">「因为凡求的，就得着；寻找的，就寻见；叩门的，就给他开门。」</p>
+        <cite id="faithCite3">— 马太福音 7:8</cite>
+      </div>
+    </div>
+
+    <div class="faith-divider"></div>
+
+    <div class="faith-body">
+      <p id="faithInvite">
+        如果这场婚礼让您对基督信仰产生了任何好奇与感动，<br>
+        诚挚欢迎您来到<strong>海明顿主恩国语宣道会</strong>，<br>
+        与我们一同敬拜、查经，在信仰的群体中彼此相遇。
+      </p>
+      <p id="faithThanks">
+        我们也由衷感谢教会多年来对我们的牧养与陪伴，<br>
+        以及在这场婚礼中给予的祝福、支持与帮助。<br>
+        愿上帝记念每一位为此付出的弟兄姊妹。
       </p>
     </div>
 
@@ -1340,15 +1310,6 @@
      SCRIPTS
 ════════════════════════════════ -->
 <script>
-  /* ── 邮箱防爬虫：运行时拼装，HTML 源码中不出现明文 ── */
-  (function() {
-    const u = 'liuboxi' + '2019';
-    const d = 'gmail'   + '.com';
-    const e = u + '@' + d;
-    document.querySelectorAll('.etransfer-btn').forEach(el => {
-      el.textContent = e;
-    });
-  })();
 
   /* ── 相册展开/收起 ── */
   function toggleGallery() {
@@ -1512,7 +1473,7 @@
   const T = {
     zh: {
       btn:'EN',
-      nav:['主页','我们的故事','美好时光','相册','婚礼流程','感恩馈赠'],
+      nav:['主页','我们的故事','美好时光','相册','婚礼流程','感恩馈赠','结语'],
       heroMeta:'2026年9月12日 &nbsp;·&nbsp; 周六',
       heroEyebrow:'蒙主恩典 &nbsp;·&nbsp; 我们要结婚啦',
       heroLocation:'汉密尔顿主恩国语宣道会',
@@ -1534,10 +1495,14 @@
       scrollHint:'向下滚动',
       galleryMore:'查看更多照片', galleryLess:'收起照片',
       schedLabel:'婚礼当日', schedTitle:'婚礼流程',
-      schedDesc:'我们诚挚地邀请您与我们共同见证这蒙主恩典的美好时刻，以下是当天的详细安排。',
-      schedCol1:'证婚典礼与婚宴', schedCol2:'地点与出行',
-      schedH4:['来宾就座','敬拜赞美 <span class="sched-tag">✝︎</span>','证道 <span class="sched-tag">✝︎</span>','交换誓言与戒指 <span class="sched-tag">✝︎</span>','祷告祝福与宣布成婚 <span class="sched-tag">✝︎</span>','合影留念','证婚典礼结束','婚宴入座','互动小游戏','晚会结束','汉密尔顿主恩国语宣道会','Mandarin 餐厅','停车指引','着装建议','回复截止日期'],
-      schedFirstP:['欢迎来宾入场，请于 2:00 PM 前就座。','全体共同敬拜，以歌声将荣耀归于主，开启这神圣的典礼。','牧师分享主题信息，诠释婚姻在圣经中的真义与呼召。','新人在上帝与众人面前立下誓言，交换信物，合而为一。','牧师为新人祷告，宣告婚姻成立，全场见证。','新人与家人、来宾拍摄合影，留住这美好瞬间。','感谢大家一同见证这蒙主恩典的时刻，愿上帝祝福每一位亲友平安喜乐。','欢迎受邀来宾入席，请于 7:15 PM 前就座。','与亲友一同参与轻松有趣的互动环节，分享欢笑与祝福。','感谢您的陪伴，愿上帝一路保守您平安归家。','31 Summit Ave, Hamilton, ON, L8V 2R7','1508 Upper James St, Hamilton, ON, L9B 1K3','教堂提供免费停车场，附近亦可免费路边停车。','正式礼服或精致休闲装，以简洁优雅为宜，方便出席圣洁的礼拜典礼。','晚宴受邀嘉宾请于 <strong>2026年7月1日</strong> 前回复。'],
+      schedDesc:'',
+      schedCol1:'证婚典礼 ✝︎', schedCol2:'婚宴',
+      schedTime1:'2:00 PM', schedVenue1:'海明顿主恩国语宣道会',
+      schedAddr1:'31 Summit Ave, Hamilton, ON L8V 2R7',
+      schedTime2:'7:00 PM', schedVenue2:'Mandarin 餐厅',
+      schedAddr2:'1508 Upper James St, Hamilton, ON L9B 1K3',
+      schedDate:'2026年9月12日 &nbsp;·&nbsp; 周六',
+      schedBlock1:'证婚典礼 ✝︎', schedBlock2:'婚宴',
       schedTimeLabels:['仪式','婚宴','停车','着装','回复'],
       locLinks:['仪式地点地图 ↗','婚宴地点地图 ↗'],
       schedLocText:['汉密尔顿主恩国语宣道会 — 主堂','汉密尔顿主恩国语宣道会 — 主堂','教堂前厅及户外区域','宴会厅'],
@@ -1545,18 +1510,27 @@
       dinnerNoteP:'若您收到晚宴邀请，诚挚欢迎您于晚间移步宴会厅，与我们继续同庆；若您仅参加证婚典礼，您的见证与祝福对我们同样珍贵。',
       rsvpTitle:'晚宴出席回复', rsvpText:'证婚典礼欢迎所有亲友，无需回复。<br>若您已收到晚宴邀请码，请于 2026年7月1日 前登入回复。',
       giftLabel:'礼物与祝福', giftTitle:'感恩馈赠',
-      giftDesc:'您的莅临与祝福，是我们最珍贵的礼物。若您有心馈赠，以下方式可供参考，我们将感谢您对我们新生活的支持。留言可备注您的姓名，方便我们日后致谢。',
-      gift1Title:'礼金红包', gift1Text:'我们即将组建我们的小家，礼金将成为我们开启新生活最实际的帮助。若您愿意送上礼金祝福，可通过 e-Transfer 至：',
-      gift2Title:'蜜月基金', gift2Text:'我们正在为蜜月旅行储蓄，您的每一份祝福都将化为旅途中的回忆和感动——一顿浪漫晚餐、或是一次日落巡游。若您愿意送上帮助支持，可通过 e-Transfer 至：',
-      gift3Title:'您的心意', gift3Text:'也许是您在书架前驻足良久，终于取下那本一直想推荐给朋友的书；也许是一张礼品卡，附上几行悄悄话；也许只是某件让您忽然想到我们的小物件——我们在乎的，从来不是礼物本身，而是您为我们停下脚步的那一刻心意。',
+      giftDesc:'您的莅临与祝福，是我们最珍贵的礼物。若您有心馈赠，礼金与礼品将在婚礼现场以礼品箱的形式收取，感谢您对我们新生活的支持。',
+      gift1Title:'组建小家', gift1Text:'我们即将开始建立属于自己的小家。如果您愿意用红包、礼品卡，或任何能为新生活带来帮助的方式支持我们，我们都会由衷感激。这些心意，都会一点一点成为我们未来生活里的温暖与陪伴。',
+      gift2Title:'蜜月基金', gift2Text:'我们正在为回国蜜月旅行慢慢规划与储蓄。如果您愿意为这段旅程添上一份心意，我们都会十分感激，并会带着这份温暖，去看更多风景、留下更多回忆。',
+      gift3Title:'您的心意', gift3Text:'也许是一本您一直想分享给朋友的书；也许是一封卡片，写下几句想对我们说的话；也许是一份带着故事与祝福的小小心意。我们珍惜的，从来不只是礼物本身，而是您曾认真想起我们、为我们停下脚步的那份温柔。',
       giftNote:'"你们要把一切的忧虑卸给上帝，因为祂顾念你们。"<br><span style="font-size:.82rem;color:var(--muted);">— 彼得前书 5:7</span><br><br>感谢您的祝福与同行，愿上帝赐福给您及您的家人。',
+      faithLabel:'认识这份爱', faithTitle:'因为爱，所以相信',
+      faithVerse1:'「凡劳苦担重担的人，可以到我这里来，我就使你们得安息。」',
+      faithCite1:'— 马太福音 11:28',
+      faithVerse2:'「神爱世人，甚至将他的独生子赐给他们，叫一切信他的，不至灭亡，反得永生。」',
+      faithCite2:'— 约翰福音 3:16',
+      faithVerse3:'「因为凡求的，就得着；寻找的，就寻见；叩门的，就给他开门。」',
+      faithCite3:'— 马太福音 7:8',
+      faithInvite:'如果这场婚礼让您对基督信仰产生了任何好奇与感动，<br>诚挚欢迎您来到<strong>海明顿主恩国语宣道会</strong>，<br>与我们一同敬拜、查经，在信仰的群体中彼此相遇。',
+      faithThanks:'我们也由衷感谢教会多年来对我们的牧养与陪伴，<br>以及在这场婚礼中给予的祝福、支持与帮助。<br>愿上帝记念每一位为此付出的弟兄姊妹。',
       footerDate:'2026年9月12日',
       footerVerse:'"我们爱，因为上帝先爱我们。"<br><span style="font-size:.68rem;letter-spacing:.1em;">— 约翰一书 4:19</span>',
       footerTag:'在主恩典中同心同行 &nbsp;·&nbsp; 感谢所有亲友的同在与祝福',
     },
     en: {
       btn:'中',
-      nav:['Home','Our Story','Moments','Gallery','Schedule','Gifts'],
+      nav:['Home','Our Story','Moments','Gallery','Schedule','Gifts','Closing'],
       heroMeta:'September 12, 2026 &nbsp;·&nbsp; Saturday',
       heroEyebrow:'By God\'s Grace &nbsp;·&nbsp; We\'re Getting Married',
       heroLocation:'Hamilton Grace Mandarin Alliance Church',
@@ -1578,10 +1552,14 @@
       scrollHint:'Scroll',
       galleryMore:'View More', galleryLess:'View Less',
       schedLabel:'Wedding Day', schedTitle:'Schedule',
-      schedDesc:'We warmly invite you to witness this beautiful moment blessed by God\'s grace. Here is the schedule for the day.',
-      schedCol1:'Ceremony & Reception', schedCol2:'Venue & Travel',
-      schedH4:['Guest Arrival','Worship & Praise <span class="sched-tag">✝︎</span>','Sermon <span class="sched-tag">✝︎</span>','Exchange of Vows & Rings <span class="sched-tag">✝︎</span>','Prayer, Blessing & Pronouncement <span class="sched-tag">✝︎</span>','Group Photos','End of Ceremony','Dinner Reception','Interactive Games','End of Evening','Hamilton Grace Mandarin Alliance Church','Mandarin Restaurant','Parking','Dress Code','RSVP Deadline'],
-      schedFirstP:['Doors open. Please be seated by 2:00 PM.','Opening worship — giving glory to God through song to begin this sacred ceremony.','The pastor shares a message on the meaning and calling of Christian marriage.','The couple exchanges vows and rings before God and all who have gathered, becoming one.','The pastor prays over the couple, pronounces them married, and the assembly bears witness.','Group photos with family and guests to capture this beautiful moment.','Thank you for witnessing this moment of grace. May God bless each and every one of you.','Invited guests are welcome to dinner. Please be seated by 7:15 PM.','Join us for fun and laughter with family and friends.','Thank you for celebrating with us. Safe travels home!','31 Summit Ave, Hamilton, ON, L8V 2R7','1508 Upper James St, Hamilton, ON, L9B 1K3','Free parking is available at the church. Street parking is also available nearby.','Formal or smart casual attire. Elegant and comfortable for a sacred worship ceremony.','Dinner guests please respond by <strong>July 1, 2026</strong>.'],
+      schedDesc:'',
+      schedCol1:'Wedding Ceremony ✝︎', schedCol2:'Wedding Banquet',
+      schedTime1:'2:00 PM', schedVenue1:'Hamilton Grace Mandarin Alliance Church',
+      schedAddr1:'31 Summit Ave, Hamilton, ON L8V 2R7',
+      schedTime2:'7:00 PM', schedVenue2:'Mandarin Restaurant',
+      schedAddr2:'1508 Upper James St, Hamilton, ON L9B 1K3',
+      schedDate:'September 12, 2026 &nbsp;·&nbsp; Saturday',
+      schedBlock1:'Wedding Ceremony ✝︎', schedBlock2:'Wedding Banquet',
       schedTimeLabels:['Ceremony','Reception','Parking','Attire','RSVP'],
       locLinks:['Ceremony Map ↗','Reception Map ↗'],
       schedLocText:['Hamilton Grace Mandarin Alliance Church — Main Hall','Hamilton Grace Mandarin Alliance Church — Main Hall','Church Foyer & Outdoor Area','Banquet Hall'],
@@ -1589,11 +1567,20 @@
       dinnerNoteP:'If you have received a dinner invitation, you are warmly welcome to join us at the reception. If you are only attending the ceremony, your witness and blessings mean just as much to us.',
       rsvpTitle:'Dinner RSVP', rsvpText:'Everyone is welcome to attend the ceremony — no RSVP required.<br>If you received a dinner invitation code, please log in and respond by July 1, 2026.',
       giftLabel:'Gifts & Blessings', giftTitle:'With Gratitude',
-      giftDesc:'Your presence and blessings are the greatest gifts we could receive. If you wish to give, the options below are available — we are grateful for your support as we begin our new life. Please include your name in the note so we can thank you personally.',
-      gift1Title:'Cash Gift', gift1Text:'We are building our first home together, and a cash gift is the most practical way to help us get started. If you would like to bless us, please send via e-Transfer to:',
-      gift2Title:'Honeymoon Fund', gift2Text:'We are saving for our honeymoon, and your contribution will become a cherished memory — a romantic dinner or a sunset cruise. If you would like to help, please send via e-Transfer to:',
-      gift3Title:'A Gift from the Heart', gift3Text:'Perhaps you will pause at a bookshelf and pick out just the right book; perhaps a gift card with a little note tucked inside; or something small that simply reminded you of us — what matters is not the gift itself, but the thoughtfulness behind it.',
+      giftDesc:'Your presence and blessings are the greatest gifts we could receive. If you wish to give, cash gifts and physical gifts will be collected at the venue via a gift box on the day of the wedding.',
+      gift1Title:'Our New Home', gift1Text:'We are beginning to build our very own home together. If you would like to support us with a red envelope, a gift card, or anything that might help us settle into our new life, we would be deeply grateful. Every gesture of kindness will become a small piece of warmth in the life we build together.',
+      gift2Title:'Honeymoon Fund', gift2Text:'We are slowly saving and planning for our honeymoon trip back home. If you would like to add a little something to this journey, we would be so touched — and we will carry your warmth with us as we explore and make memories together.',
+      gift3Title:'A Gift from the Heart', gift3Text:'Perhaps a book you have long wanted to share with a friend. Perhaps a card with a few words written just for us. Perhaps a small, thoughtful gift that carries a story and a blessing. What we treasure is never just the gift itself — it is the tenderness of knowing you stopped, thought of us, and chose to show up for us.',
       giftNote:'"Cast all your anxiety on him because he cares for you."<br><span style="font-size:.82rem;color:var(--muted);">— 1 Peter 5:7</span><br><br>Thank you for your blessings and company. May God bless you and your family.',
+      faithLabel:'A Faith Worth Sharing', faithTitle:'Love That Changes Everything',
+      faithVerse1:'"Come to me, all you who are weary and burdened, and I will give you rest."',
+      faithCite1:'— Matthew 11:28',
+      faithVerse2:'"For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life."',
+      faithCite2:'— John 3:16',
+      faithVerse3:'"For everyone who asks receives; the one who seeks finds; and to the one who knocks, the door will be opened."',
+      faithCite3:'— Matthew 7:8',
+      faithInvite:'If this wedding has stirred any curiosity or longing about the Christian faith,<br>you are warmly welcomed to join us at <strong>Hamilton Grace Mandarin Alliance Church</strong>,<br>where we worship, study the Word, and walk together in faith.',
+      faithThanks:'We are deeply grateful to our church family for years of love, guidance, and community,<br>and for the blessing, support, and care given to us for this wedding.<br>May God bless every one who gave so generously.',
       footerDate:'September 12, 2026',
       footerVerse:'"We love because he first loved us."<br><span style="font-size:.68rem;letter-spacing:.1em;">— 1 John 4:19</span>',
       footerTag:'Walking together in God\'s grace &nbsp;·&nbsp; Thank you for being with us',
@@ -1623,7 +1610,6 @@
     set('.hero-location', d.heroLocation);
     set('.hero-verse', d.heroVerse);
     document.querySelectorAll('.cd-label').forEach((el,i) => { if (d.cdLabels[i]) el.textContent = d.cdLabels[i]; });
-    document.querySelectorAll('a[href="rsvp.html"]').forEach(el => { el.textContent = d.rsvpBtns; });
 
     // Story
     set('#story .section-label', d.storyLabel);
@@ -1663,26 +1649,22 @@
       gb.textContent = showing ? d.galleryLess : d.galleryMore;
     }
 
-    // Schedule items
+    // Schedule (clean format)
     set('#schedule .section-label', d.schedLabel);
     set('#schedule .section-title', d.schedTitle);
-    set('#schedule .schedule-header p', d.schedDesc);
-    const cols = document.querySelectorAll('.schedule-col h3');
-    if (cols[0]) cols[0].textContent = d.schedCol1;
-    if (cols[1]) cols[1].textContent = d.schedCol2;
-    document.querySelectorAll('.sched-info h4').forEach((el,i) => { if (d.schedH4[i]) el.innerHTML = d.schedH4[i]; });
-    document.querySelectorAll('.sched-info').forEach((info,i) => {
-      const p = info.querySelector('p:not(.loc)');
-      if (p && d.schedFirstP[i]) p.innerHTML = d.schedFirstP[i];
-    });
-    document.querySelectorAll('.sched-time[style*="color:var"]').forEach((el,i) => {
-      if (d.schedTimeLabels[i]) el.textContent = d.schedTimeLabels[i];
-    });
-    document.querySelectorAll('.sched-info .loc a').forEach((a,i) => {
-      if (d.locLinks[i]) a.textContent = d.locLinks[i];
-    });
-    const plainLocs = Array.from(document.querySelectorAll('.sched-info .loc')).filter(el => !el.querySelector('a'));
-    plainLocs.forEach((el,i) => { if (d.schedLocText[i]) el.textContent = d.schedLocText[i]; });
+    const sd = document.getElementById('schedDate'); if (sd) sd.innerHTML = d.schedDate;
+    const cleanLabels = document.querySelectorAll('.sched-clean-block .section-label');
+    if (cleanLabels[0]) cleanLabels[0].textContent = d.schedBlock1;
+    if (cleanLabels[1]) cleanLabels[1].textContent = d.schedBlock2;
+    const cleanTimes = document.querySelectorAll('.sched-clean-time');
+    if (cleanTimes[0]) cleanTimes[0].textContent = d.schedTime1;
+    if (cleanTimes[1]) cleanTimes[1].textContent = d.schedTime2;
+    const cleanVenues = document.querySelectorAll('.sched-clean-venue');
+    if (cleanVenues[0]) cleanVenues[0].textContent = d.schedVenue1;
+    if (cleanVenues[1]) cleanVenues[1].textContent = d.schedVenue2;
+    const cleanAddrs = document.querySelectorAll('.sched-clean-addr');
+    if (cleanAddrs[0]) cleanAddrs[0].innerHTML = d.schedAddr1.replace(',','<br>');
+    if (cleanAddrs[1]) cleanAddrs[1].innerHTML = d.schedAddr2.replace(',','<br>');
     const din = document.querySelector('.dinner-invite-note');
     if (din) {
       const dh = din.querySelector('h4'); if (dh) dh.textContent = d.dinnerNoteH4;
@@ -1705,6 +1687,19 @@
     if (gh[1]) gh[1].textContent = d.gift2Title; if (gp[1]) gp[1].innerHTML = d.gift2Text;
     if (gh[2]) gh[2].textContent = d.gift3Title; if (gp[2]) gp[2].innerHTML = d.gift3Text;
     set('.gift-note p', d.giftNote);
+
+    // Faith section
+    const setId = (id, html) => { const el=document.getElementById(id); if(el) el.innerHTML=html; };
+    setId('faithLabel',  d.faithLabel);
+    setId('faithTitle',  d.faithTitle);
+    setId('faithVerse1', d.faithVerse1);
+    setId('faithCite1',  d.faithCite1);
+    setId('faithVerse2', d.faithVerse2);
+    setId('faithCite2',  d.faithCite2);
+    setId('faithVerse3', d.faithVerse3);
+    setId('faithCite3',  d.faithCite3);
+    setId('faithInvite', d.faithInvite);
+    setId('faithThanks', d.faithThanks);
 
     // Footer
     set('.footer-date', d.footerDate);
