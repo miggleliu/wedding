@@ -617,10 +617,7 @@
     }
     .sched-clean-venue { font-size: .82rem; color: var(--dark); font-weight: 400; margin-bottom: 5px; }
     .sched-clean-addr  { font-size: .72rem; color: var(--muted); line-height: 1.75; }
-    @media (max-width: 480px) {
-      .sched-clean-row { grid-template-columns: 1fr; gap: 28px 0; }
-      .sched-clean-sep { width: 48px; height: 1px; margin: 0 auto; align-self: auto; }
-    }
+
     .gift-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; margin-bottom: 36px; }
     .gift-card {
       background: var(--cream); padding: 34px 28px;
@@ -844,7 +841,7 @@
 
     <!-- ★ 替换为真实日期和地点 ★ -->
     <p class="hero-meta">2026年9月12日 &nbsp;·&nbsp; 周六</p>
-    <p class="hero-location">汉密尔顿主恩国语宣道会</p>
+    <p class="hero-location">海明顿主恩国语宣道会</p>
 
     <!-- 圣经金句 -->
     <div class="hero-verse">
@@ -933,6 +930,13 @@
             </div>
           </div>
           <div class="tl-item">
+            <div class="tl-year">2024</div>
+            <div class="tl-body">
+              <h4>学业里程碑</h4>
+              <p>经过无数个在图书馆中并肩奋斗的日子，我们一起本科毕业，并且决定继续读研。而图书馆中，仍旧保留着我们的“专属”座位……</p>
+            </div>
+          </div>
+          <div class="tl-item">
             <div class="tl-year">2025</div>
             <div class="tl-body">
               <h4>求婚</h4>
@@ -992,35 +996,30 @@
 
   <div class="moment-item fade-in">
     <div class="moment-img">
-      <img src="images/moment1.jpg"
+      <img src="images/moment2.jpg"
            onerror="this.src='https://picsum.photos/900/700?random=10'"
            alt="美好时光一" loading="lazy" decoding="async">
     </div>
     <div class="moment-copy">
       <span class="section-label">01</span>
-      <h3>一起带领敬拜</h3>
+      <h3>一起出行的旅途</h3>
       <p>
-        我们一同站在台上，用歌声和琴声赞美上帝。
-        曲终，我们献上祷告，却在睁眼的瞬间，
-        不约而同地望向彼此——
-        那一刻，心里有什么东西悄悄落定了。
+        在异国他乡的旅途中总会伴随着争吵与意外，或许是曾在墨西哥人声鼎沸的街道上，冷战了一个下午，只因一些如今已然想不起的原因；抑或是在埃及红海15米深处进行潜水训练，原本的憧憬却瞬间化为寒冷与恐慌；但是更多时候，我们在互相包容中成长，在危机患难时祷告，于是我们在日出时起舞、在日落时依偎，靠着信仰成为人生这场旅途中照亮彼此的光。
       </p>
     </div>
   </div>
 
   <div class="moment-item fade-in">
     <div class="moment-img">
-      <img src="images/moment2.jpg"
+      <img src="images/moment1.jpg"
            onerror="this.src='https://picsum.photos/900/700?random=20'"
            alt="美好时光二" loading="lazy" decoding="async">
     </div>
     <div class="moment-copy">
       <span class="section-label">02</span>
-      <h3>一起出行的旅途</h3>
+      <h3>一起带领敬拜</h3>
       <p>
-        一辆车、两个人、一路上数不清的笑声与祷告。
-        我们学会了在旅途中彼此迁就、彼此等候，
-        也在异乡的晨光里一起感谢主赐予的美好。
+        我们一同站在台上，用歌声和琴声赞美上帝。也许，反复地排练有点耗费时间；也许，一起从原曲中逐帧复刻前奏也是并非必须；但是当我们开始敬拜时，我们感受到在耶稣里与彼此的合一，我们便确信，这是我们所盼望未来每一天的样子——你，我，祂。
       </p>
     </div>
   </div>
@@ -1035,9 +1034,7 @@
       <span class="section-label">03</span>
       <h3>求婚那一天</h3>
       <p>
-        灯光、鲜花、气球、好友，这是专属你的天马行空。
-        他单膝跪地，念出那些反复练习过的话，
-        把钻戒缓缓戴进她的无名指。
+        "灯光、鲜花、气球、好友，这是专属你的天马行空"，他单膝跪地，念出那些反复练习过的话，把钻戒缓缓戴进她的无名指，"因为，你是我的翅膀，而我愿意做你的船桨，你为我种下勇气森林，抹去我披风上的荒寂，而我愿意跳出海域，成为你身后的青春和每一次的回忆。"
       </p>
     </div>
   </div>
@@ -1193,7 +1190,7 @@
       <div class="divider divider-center"></div>
       <p>
         您的莅临与祝福，是我们最珍贵的礼物。
-        若您有心馈赠，礼金与礼品将在婚礼现场以礼品箱的形式收取，感谢您对我们新生活的支持。
+        若您有心馈赠，礼金与礼品将在婚礼现场收取，感谢您对我们新生活的支持。
       </p>
     </div>
 
@@ -1214,7 +1211,7 @@
         <h3>蜜月基金</h3>
         <p>
           我们正在为回国蜜月旅行慢慢规划与储蓄。
-          如果您愿意为这段旅程添上一份心意，我们都会十分感激，
+          如果您愿意为这段旅程添上一份心意，我们十分感激，
           并会带着这份温暖，去看更多风景、留下更多回忆。
         </p>
       </div>
@@ -1476,7 +1473,7 @@
       nav:['主页','我们的故事','美好时光','相册','婚礼流程','感恩馈赠','结语'],
       heroMeta:'2026年9月12日 &nbsp;·&nbsp; 周六',
       heroEyebrow:'蒙主恩典 &nbsp;·&nbsp; 我们要结婚啦',
-      heroLocation:'汉密尔顿主恩国语宣道会',
+      heroLocation:'海明顿主恩国语宣道会',
       heroVerse:'"我的良人属我，我也属他。"<cite>— 雅歌 2:16</cite>',
       cdLabels:['天','小时','分钟','秒'],
       rsvpBtns:'晚宴回复',
@@ -1484,13 +1481,13 @@
       storyP1:'从羽毛球场上的一次邂逅，到手写情书与玫瑰里的真诚告白；从彼此陪伴，到在主里同心同行，我们一步一步看见上帝奇妙的带领。',
       storyP2:'感谢主让我们在相识、相爱与归向祂的路上彼此扶持。如今，我们盼望在亲友的见证下，以誓言与爱进入婚姻，一同建立愿意事奉耶和华的家。',
       verseBlock:'"耶和华上帝说：\'那人独居不好，我要为他造一个配偶帮助他。\'"<cite>— 创世记 2:18</cite>',
-      tlH4:['初次相遇','表白','同心同行','求婚','订婚','在主里合而为一'],
-      tlP:['羽毛球场上的邂逅，没想到成了永远的球友，和微信置顶的好友。','手写情书一封，送上玫瑰一束，那句"我喜欢你"的双向奔赴。','她恒切祷告，他亦归向主，"二人若不同心，岂能同行呢？"【摩 3:3】','在亲友见证之下，他单膝跪地，"你愿意嫁给我吗？"','双方父母会晤成功，我们收到满满的爱与祝福。','我们将在众人面前，以誓言与爱，在上帝的见证下，正式结合。"至于我和我家，我们必定事奉耶和华。"【书 24:15】'],
+      tlH4:['初次相遇','表白','同心同行','学业里程碑','求婚','订婚','在主里合而为一'],
+      tlP:['羽毛球场上的邂逅，没想到成了永远的球友，和微信置顶的好友。','手写情书一封，送上玫瑰一束，那句"我喜欢你"的双向奔赴。','她恒切祷告，他亦归向主，"二人若不同心，岂能同行呢？"【摩 3:3】','经过无数个在图书馆中并肩奋斗的日子，我们一起本科毕业，并且决定继续读研。而图书馆中，仍旧保留着我们的专属座位……','在亲友见证之下，他单膝跪地，"你愿意嫁给我吗？"','双方父母会晤成功，我们收到满满的爱与祝福。','我们将在众人面前，以誓言与爱，在上帝的见证下，正式结合。"至于我和我家，我们必定事奉耶和华。"【书 24:15】'],
       verseBanner:'"爱是恒久忍耐，又有恩慈；爱是不嫉妒；爱是不自夸，不张狂，不做害羞的事，不求自己的益处，不轻易发怒，不计算人的恶，不喜欢不义，只喜欢真理；凡事包容，凡事相信，凡事盼望，凡事忍耐。爱是永不止息。"<cite>哥林多前书 13:4–8</cite>',
       momentsLabel:'珍贵回忆', momentsTitle:'美好时光',
-      m01Title:'一起带领敬拜', m01Text:'我们一同站在台上，用歌声和琴声赞美上帝。曲终，我们献上祷告，却在睁眼的瞬间，不约而同地望向彼此——那一刻，心里有什么东西悄悄落定了。',
-      m02Title:'一起出行的旅途', m02Text:'一辆车、两个人、一路上数不清的笑声与祷告。我们学会了在旅途中彼此迁就、彼此等候，也在异乡的晨光里一起感谢主赐予的美好。',
-      m03Title:'求婚那一天', m03Text:'灯光、鲜花、气球、好友，这是专属你的天马行空。他单膝跪地，念出那些反复练习过的话，把钻戒缓缓戴进她的无名指。',
+      m01Title:'一起出行的旅途', m01Text:'在异国他乡的旅途中总会伴随着争吵与意外，或许是曾在墨西哥人声鼎沸的街道上，冷战了一个下午，只因一些如今已然想不起的原因；抑或是在埃及红海15米深处进行潜水训练，原本的憧憬却瞬间化为寒冷与恐慌；但是更多时候，我们在互相包容中成长，在危机患难时祷告，于是我们在日出时起舞、在日落时依偎，靠着信仰成为人生这场旅途中照亮彼此的光。',
+      m02Title:'一起带领敬拜', m02Text:'我们一同站在台上，用歌声和琴声赞美上帝。也许，反复地排练有点耗费时间；也许，一起从原曲中逐帧复刻前奏也是并非必须；但是当我们开始敬拜时，我们感受到在耶稣里与彼此的合一，我们便确信，这是我们所盼望未来每一天的样子——你，我，祂。',
+      m03Title:'求婚那一天', m03Text:'"灯光、鲜花、气球、好友，这是专属你的天马行空"，他单膝跪地，念出那些反复练习过的话，把钻戒缓缓戴进她的无名指，"因为，你是我的翅膀，而我愿意做你的船桨，你为我种下勇气森林，抹去我披风上的荒寂，而我愿意跳出海域，成为你身后的青春和每一次的回忆。"',
       galleryLabel:'点滴时光', galleryTitle:'我们的相册',
       scrollHint:'向下滚动',
       galleryMore:'查看更多照片', galleryLess:'收起照片',
@@ -1510,9 +1507,9 @@
       dinnerNoteP:'若您收到晚宴邀请，诚挚欢迎您于晚间移步宴会厅，与我们继续同庆；若您仅参加证婚典礼，您的见证与祝福对我们同样珍贵。',
       rsvpTitle:'晚宴出席回复', rsvpText:'证婚典礼欢迎所有亲友，无需回复。<br>若您已收到晚宴邀请码，请于 2026年7月1日 前登入回复。',
       giftLabel:'礼物与祝福', giftTitle:'感恩馈赠',
-      giftDesc:'您的莅临与祝福，是我们最珍贵的礼物。若您有心馈赠，礼金与礼品将在婚礼现场以礼品箱的形式收取，感谢您对我们新生活的支持。',
+      giftDesc:'您的莅临与祝福，是我们最珍贵的礼物。若您有心馈赠，礼金与礼品将在婚礼现场收取，感谢您对我们新生活的支持。',
       gift1Title:'组建小家', gift1Text:'我们即将开始建立属于自己的小家。如果您愿意用红包、礼品卡，或任何能为新生活带来帮助的方式支持我们，我们都会由衷感激。这些心意，都会一点一点成为我们未来生活里的温暖与陪伴。',
-      gift2Title:'蜜月基金', gift2Text:'我们正在为回国蜜月旅行慢慢规划与储蓄。如果您愿意为这段旅程添上一份心意，我们都会十分感激，并会带着这份温暖，去看更多风景、留下更多回忆。',
+      gift2Title:'蜜月基金', gift2Text:'我们正在为回国蜜月旅行慢慢规划与储蓄。如果您愿意为这段旅程添上一份心意，我们十分感激，并会带着这份温暖，去看更多风景、留下更多回忆。',
       gift3Title:'您的心意', gift3Text:'也许是一本您一直想分享给朋友的书；也许是一封卡片，写下几句想对我们说的话；也许是一份带着故事与祝福的小小心意。我们珍惜的，从来不只是礼物本身，而是您曾认真想起我们、为我们停下脚步的那份温柔。',
       giftNote:'"你们要把一切的忧虑卸给上帝，因为祂顾念你们。"<br><span style="font-size:.82rem;color:var(--muted);">— 彼得前书 5:7</span><br><br>感谢您的祝福与同行，愿上帝赐福给您及您的家人。',
       faithLabel:'认识这份爱', faithTitle:'因为爱，所以相信',
@@ -1541,13 +1538,13 @@
       storyP1:'From a chance encounter on the badminton court, to a heartfelt confession with a handwritten letter and roses — through companionship and faith, we have witnessed God\'s wonderful guidance every step of the way.',
       storyP2:'We are grateful that God brought us together — to grow in love, in faith, and in Him. Now, we look forward to entering marriage before our loved ones, building a home that chooses to serve the Lord.',
       verseBlock:'"The Lord God said, \'It is not good that the man should be alone; I will make him a helper fit for him.\'"<cite>— Genesis 2:18</cite>',
-      tlH4:['First Meeting','Confession','Walking Together in Faith','The Proposal','Engagement','United in Christ'],
-      tlP:['A chance encounter on the badminton court — the beginning of everything.','A handwritten letter, a bouquet of roses, and feelings that went both ways.','She prayed faithfully; he turned to God too. "Can two walk together unless they agree?" — Amos 3:3','With friends as witnesses, he got down on one knee and asked, "Will you marry me?"','Our families met and celebrated, and we received an abundance of love and blessings.','We will stand before our loved ones, joined in vows and love, witnessed by God. "As for me and my household, we will serve the Lord." — Joshua 24:15'],
+      tlH4:['First Meeting','Confession','Walking Together in Faith','Academic Milestone','The Proposal','Engagement','United in Christ'],
+      tlP:['A chance encounter on the badminton court — the beginning of everything.','A handwritten letter, a bouquet of roses, and feelings that went both ways.','She prayed faithfully; he turned to God too. "Can two walk together unless they agree?" — Amos 3:3','After countless days studying side by side in the library, we graduated together and chose to continue into graduate school. Somewhere in that library, our "reserved" seats still wait for us…','With friends as witnesses, he got down on one knee and asked, "Will you marry me?"','Our families met and celebrated, and we received an abundance of love and blessings.','We will stand before our loved ones, joined in vows and love, witnessed by God. "As for me and my household, we will serve the Lord." — Joshua 24:15'],
       verseBanner:'"Love is patient, love is kind. It does not envy, it does not boast, it is not proud. It does not dishonor others, it is not self-seeking, it is not easily angered, it keeps no record of wrongs. Love does not delight in evil but rejoices with the truth. It always protects, always trusts, always hopes, always perseveres. Love never fails."<cite>1 Corinthians 13:4–8</cite>',
       momentsLabel:'Cherished Memories', momentsTitle:'Beautiful Moments',
-      m01Title:'Leading Worship Together', m01Text:'We stood on stage together, praising God with voices and strings. When the song ended and we opened our eyes, we found ourselves looking at each other — something quietly settled in our hearts.',
-      m02Title:'Journeys Together', m02Text:'One car, two people, and endless laughter and prayers along the way. We learned patience and found grace in the morning light of places far from home.',
-      m03Title:'The Proposal', m03Text:'Lights, flowers, balloons, and friends — a world made just for her. He got down on one knee, spoke the words he had rehearsed so many times, and gently placed the ring on her finger.',
+      m01Title:'Journeys Together', m01Text:'Travel to foreign lands always brings its share of arguments and surprises — perhaps a cold war on the bustling streets of Mexico over something neither of us can quite remember, or the sudden shock of cold water and panic fifteen metres beneath the Red Sea. But more often, we grew through understanding, through prayer in moments of crisis — and so we danced at sunrise, leaned on each other at sunset, and found in our faith the light that guides us through life\'s journey together.',
+      m02Title:'Leading Worship Together', m02Text:'We stood on stage together, praising God with voices and strings. Perhaps the endless rehearsals took more time than they needed to; perhaps recreating that intro frame by frame was never strictly necessary. But when we began to worship, we felt a oneness with each other in Jesus — and we knew, with certainty, that this is the life we hope for every day: you, me, Him.',
+      m03Title:'The Proposal', m03Text:'"Lights, flowers, balloons, and friends — a world of imagination made just for you," he said, getting down on one knee. He spoke the words he had rehearsed so many times, and slowly placed the ring on her finger: "Because you are my wings, and I will be your oar. You planted a forest of courage in me, swept the barren loneliness from my shoulders, and I will leap beyond the waves to become every day to come and every memory you carry."',
       galleryLabel:'Through the Years', galleryTitle:'Our Gallery',
       scrollHint:'Scroll',
       galleryMore:'View More', galleryLess:'View Less',
