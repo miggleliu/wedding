@@ -1189,8 +1189,7 @@
       <h2 class="section-title">感恩馈赠</h2>
       <div class="divider divider-center"></div>
       <p>
-        您的莅临与祝福，是我们最珍贵的礼物。
-        若您有心馈赠，礼金与礼品将在婚礼现场收取，感谢您对我们新生活的支持。
+        您的莅临与祝福，是我们最珍贵的礼物。若您有心馈赠，礼金与礼品将在婚礼现场收取，或者通过电子转账至<span id="giftEmail" style="color:var(--gold-dark);font-style:normal;">···</span>，感谢您对我们新生活的支持。
       </p>
     </div>
 
@@ -1507,7 +1506,7 @@
       dinnerNoteP:'若您收到晚宴邀请，诚挚欢迎您于晚间移步宴会厅，与我们继续同庆；若您仅参加证婚典礼，您的见证与祝福对我们同样珍贵。',
       rsvpTitle:'晚宴出席回复', rsvpText:'证婚典礼欢迎所有亲友，无需回复。<br>若您已收到晚宴邀请码，请于 2026年7月1日 前登入回复。',
       giftLabel:'礼物与祝福', giftTitle:'感恩馈赠',
-      giftDesc:'您的莅临与祝福，是我们最珍贵的礼物。若您有心馈赠，礼金与礼品将在婚礼现场收取，感谢您对我们新生活的支持。',
+      giftDesc:'您的莅临与祝福，是我们最珍贵的礼物。若您有心馈赠，礼金与礼品将在婚礼现场收取，或者通过电子转账至<span id="giftEmail" style="color:var(--gold-dark);font-style:normal;">···</span>，感谢您对我们新生活的支持。',
       gift1Title:'组建小家', gift1Text:'我们即将开始建立属于自己的小家。如果您愿意用红包、礼品卡，或任何能为新生活带来帮助的方式支持我们，我们都会由衷感激。这些心意，都会一点一点成为我们未来生活里的温暖与陪伴。',
       gift2Title:'蜜月基金', gift2Text:'我们正在为回国蜜月旅行慢慢规划与储蓄。如果您愿意为这段旅程添上一份心意，我们十分感激，并会带着这份温暖，去看更多风景、留下更多回忆。',
       gift3Title:'您的心意', gift3Text:'也许是一本您一直想分享给朋友的书；也许是一封卡片，写下几句想对我们说的话；也许是一份带着故事与祝福的小小心意。我们珍惜的，从来不只是礼物本身，而是您曾认真想起我们、为我们停下脚步的那份温柔。',
@@ -1564,7 +1563,7 @@
       dinnerNoteP:'If you have received a dinner invitation, you are warmly welcome to join us at the reception. If you are only attending the ceremony, your witness and blessings mean just as much to us.',
       rsvpTitle:'Dinner RSVP', rsvpText:'Everyone is welcome to attend the ceremony — no RSVP required.<br>If you received a dinner invitation code, please log in and respond by July 1, 2026.',
       giftLabel:'Gifts & Blessings', giftTitle:'With Gratitude',
-      giftDesc:'Your presence and blessings are the greatest gifts we could receive. If you wish to give, cash gifts and physical gifts will be collected at the venue via a gift box on the day of the wedding.',
+      giftDesc:'Your presence and blessings are the greatest gifts we could receive. If you wish to give, gifts may be collected at the venue or sent via e-Transfer to <span id="giftEmail" style="color:var(--gold-dark);font-style:normal;">···</span>. Thank you for your support as we begin our new life together.',
       gift1Title:'Our New Home', gift1Text:'We are beginning to build our very own home together. If you would like to support us with a red envelope, a gift card, or anything that might help us settle into our new life, we would be deeply grateful. Every gesture of kindness will become a small piece of warmth in the life we build together.',
       gift2Title:'Honeymoon Fund', gift2Text:'We are slowly saving and planning for our honeymoon trip back home. If you would like to add a little something to this journey, we would be so touched — and we will carry your warmth with us as we explore and make memories together.',
       gift3Title:'A Gift from the Heart', gift3Text:'Perhaps a book you have long wanted to share with a friend. Perhaps a card with a few words written just for us. Perhaps a small, thoughtful gift that carries a story and a blessing. What we treasure is never just the gift itself — it is the tenderness of knowing you stopped, thought of us, and chose to show up for us.',
@@ -1706,8 +1705,17 @@
 
     if (typeof _userToggled !== 'undefined') localStorage.setItem('lang', lang);
     document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+    injectGiftEmail();
   }
 
+
+  /* ── 礼物邮箱防爬虫 ── */
+  function injectGiftEmail() {
+    const u = 'liuboxi' + '2019';
+    const d = 'gmail'   + '.com';
+    const el = document.getElementById('giftEmail');
+    if (el) el.textContent = u + '@' + d;
+  }
   let _userToggled;
   let currentLang = localStorage.getItem('lang') || 'zh';
   function toggleLang() {
